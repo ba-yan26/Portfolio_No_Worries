@@ -36,7 +36,8 @@
 - 相談係：誰かの役に立ちたい時
 
 ## 設計書
-<>
+- テーブル設計書：https://docs.google.com/spreadsheets/d/1IeM50SLAt96HuBvPN1UnDV17qapLbb_pxSrFrF9KAeA/edit?usp=sharing
+- ER図：https://drive.google.com/file/d/1GcYSAeRy3btUbur0E5aKHNSQxhajJwf9/view?usp=sharing
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1a_v29nYnwQZUDliREXuiCwshOtCHrAmqB4RgwCLMP1w/edit?usp=sharing>
