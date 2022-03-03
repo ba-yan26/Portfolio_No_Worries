@@ -38,6 +38,7 @@
 ## 設計書
 - テーブル設計書：https://docs.google.com/spreadsheets/d/1IeM50SLAt96HuBvPN1UnDV17qapLbb_pxSrFrF9KAeA/edit?usp=sharing
 - ER図：https://drive.google.com/file/d/1GcYSAeRy3btUbur0E5aKHNSQxhajJwf9/view?usp=sharing
+- 画面遷移図：https://drive.google.com/file/d/1HtdP6K7J96KstgEZZwF3TyVFUtrbUZHj/view?usp=sharing
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1a_v29nYnwQZUDliREXuiCwshOtCHrAmqB4RgwCLMP1w/edit?usp=sharing>
