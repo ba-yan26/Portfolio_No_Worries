@@ -21,8 +21,24 @@ class Public::RoomsController < ApplicationController
     @categories = Category.all
   end
 
-  def destory
+  def edit
+    @room = Room.find(params[:id])
+  end
 
+  def update
+    @room = Room.find(params[:id])
+    @room.update(room_params)
+    redirect_to room_path(@room)
+  end
+
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_to rooms_path
+  end
+
+  def resolution
+    @rooms = Room.all
   end
 
   private

@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <h1>No Worries</h1>
+    <% if end_user_signed_in? %>
+      <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "ログイン", new_end_user_session_path %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
