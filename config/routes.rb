@@ -6,17 +6,19 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
+
   root :to => 'homes#top'
-  
+
+
   scope module: :public do
+    get 'rooms/resolution' => 'rooms#resolution', as: 'resolution'
     resources :end_users, only: [:index, :show, :edit, :update]
-    resources :rooms, only: [:new, :create, :index, :show, :destroy]
+    resources :rooms, only: [:new, :create, :index, :show, :destroy, :edit, :update]
     resources :chats, only: [:create]
     resources :bookmarks, only: [:create, :destroy]
     resources :notices, only: [:new, :create]
   end
-  
+
   namespace :admin do
     resources :end_users, only: [:index, :show, :edit, :update]
     resources :categories, only: [:index, :create, :edit, :update]
