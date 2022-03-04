@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :end_users, only: [:index, :show, :edit, :update]
-    resources :categories, only: [:index, :new, :create, :edit, :update]
+    resources :categories, only: [:index, :create, :edit, :update]
     resources :rooms, only: [:index, :show, :destroy]
     resources :chats, only: [:destroy]
     resources :notices, only: [:index, :show]
