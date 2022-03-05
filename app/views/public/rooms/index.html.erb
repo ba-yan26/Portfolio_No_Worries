@@ -1,12 +1,16 @@
 <h1>ルーム一覧</h1>
+
+
 <div>
   <%= link_to "ルーム作成", new_room_path %>
   <%= link_to "解決一覧", resolution_path %>
 </div>
 
 <% @rooms.each do |room| %>
-  <% if room.resolution_status == false %>
-    <%= link_to room.title, room_path(room) %>
-    <%= link_to "ルーム削除", room_path(room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
-  <% end %>
+  <div>
+    <% if room.resolution_status == false %>
+      <%= link_to room.title, room_path(room) %>
+      <%= room.end_user.name %>
+    <% end %>
+  </div>
 <% end %>

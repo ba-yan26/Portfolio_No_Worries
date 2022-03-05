@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
-  has_many :categories, dependent: :destroy
+  belongs_to :category
+  belongs_to :end_user
   has_many :bookmarks, dependent: :destroy
-  has_many :chats
-
+  has_many :chats, dependent: :destroy
 end

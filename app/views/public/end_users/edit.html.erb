@@ -1,2 +1,9 @@
-<h1>Public::EndUsers#edit</h1>
-<p>Find me in app/views/public/end_users/edit.html.erb</p>
+<h1>マイページ編集</h1>
+<%= form_with model: @end_user, url: end_user_path(@end_user), method: :patch do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.submit "編集する" %>
+<% end %>
+<%= link_to "退会する", confirm_unsubscribe_path(@end_user) %>

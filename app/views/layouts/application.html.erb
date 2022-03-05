@@ -12,10 +12,22 @@
 
   <body>
     <h1>No Worries</h1>
-    <% if end_user_signed_in? %>
+    <% if admin_signed_in? %>
+      <%= link_to "ユーザー一覧", admin_end_users_path %>
+      <%= link_to "ルーム一覧", admin_rooms_path %>
+      <%= link_to "カテゴリ一覧", admin_categories_path %>
+      <%= link_to "通報一覧", admin_notices_path %>
       <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to "ログイン", new_end_user_session_path %>
+      <% if end_user_signed_in? %>
+        <%= link_to "マイページ", end_user_path(current_end_user) %>
+        <%= link_to "ルーム一覧", rooms_path %>
+        <%= link_to "解決一覧", resolution_path %>
+        <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "ログイン", new_end_user_session_path %>
+        <%= link_to "新規作成", new_end_user_registration_path %>
+      <% end %>
     <% end %>
 
     <%= yield %>
