@@ -21,6 +21,7 @@ class Public::RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @categories = Category.all
+    @chat = Chat.new
   end
 
   def edit

@@ -3,8 +3,28 @@
   <%= @room.body %>
   <%= @room.end_user.name %>
 </div>
+<div>
+  <% if @room.end_user_id == current_end_user.id %>
+    <%= link_to "編集", edit_room_path %>
+    <%= link_to "ルーム削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+  <% end %>
+</div>
 
-<% if @room.end_user_id == current_end_user.id %>
-  <%= link_to "編集", edit_room_path %>
-  <%= link_to "ルーム削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
-<% end %>
+<div>
+  <% @room.chats.each do |chat| %>
+    <%= image_tag chat.end_user.get_profile_image, size: "40x40" %>
+    <%= chat.end_user.name %>
+    <%= chat.message %>
+    <% if chat.end_user == current_end_user %>
+      <%= link_to "削除", room_chat_path(chat.room,chat), method: :delete %>
+    <% end %>
+    <br>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post do |f| %>
+    <%= f.text_area :message %>
+    <%= f.submit "コメントする" %>
+  <% end %>
+</div>
