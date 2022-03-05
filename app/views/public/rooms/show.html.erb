@@ -1,4 +1,10 @@
-<%= @room.title %>
-<%= @room.body %>
+<div>
+  <%= @room.title %>
+  <%= @room.body %>
+  <%= @room.end_user.name %>
+</div>
 
-<%= link_to "編集", edit_room_path %>
+<% if @room.end_user_id == current_end_user.id %>
+  <%= link_to "編集", edit_room_path %>
+  <%= link_to "ルーム削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+<% end %>

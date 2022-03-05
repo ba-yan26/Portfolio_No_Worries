@@ -15,11 +15,11 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def update
-    category = Category.find(params[:id])
-    category.update(category_params)
+    @category = Category.find(params[:id])
+    @category.update(category_params)
     redirect_to admin_categories_path
   end
-  
+
   private
 
   def category_params

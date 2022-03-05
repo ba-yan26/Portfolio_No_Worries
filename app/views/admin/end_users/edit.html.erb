@@ -1,2 +1,10 @@
-<h1>Admin::EndUsers#edit</h1>
-<p>Find me in app/views/admin/end_users/edit.html.erb</p>
+<h1>ユーザー編集</h1>
+<%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
+  <%= @end_user.name %>
+  <%= @end_user.email %>
+  <%= f.radio_button :is_delete, :false %>
+  <%= f.label :有効 %>
+  <%= f.radio_button :is_delete, :true %>
+  <%= f.label :退会 %>
+  <%= f.submit "編集内容を保存する" %>
+<% end %>

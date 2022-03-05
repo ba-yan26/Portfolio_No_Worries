@@ -8,15 +8,16 @@ Rails.application.routes.draw do
   }
 
   root :to => 'homes#top'
-
-
+  get 'unsubscribe/:id' => 'homes#unsubscribe', as: 'confirm_unsubscribe'
+  patch ':id/withdraw/:id' => 'homes#withdraw', as: 'withdraw_end_user'
   scope module: :public do
     get 'rooms/resolution' => 'rooms#resolution', as: 'resolution'
-    resources :end_users, only: [:index, :show, :edit, :update]
+    resources :end_users, only: [:show, :edit, :update]
     resources :rooms, only: [:new, :create, :index, :show, :destroy, :edit, :update]
     resources :chats, only: [:create]
     resources :bookmarks, only: [:create, :destroy]
     resources :notices, only: [:new, :create]
+    resources :categories, only: []
   end
 
   namespace :admin do
