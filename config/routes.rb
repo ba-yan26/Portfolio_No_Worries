@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   patch ':id/withdraw/:id' => 'homes#withdraw', as: 'withdraw_end_user'
   scope module: :public do
     get 'rooms/resolution' => 'rooms#resolution', as: 'resolution'
+    get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
     resources :end_users, only: [:show, :edit, :update]
     resources :rooms, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
       resources :chats, only: [:create, :destroy]

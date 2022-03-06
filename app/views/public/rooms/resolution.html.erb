@@ -3,6 +3,6 @@
 <% @rooms.each do |room| %>
   <% if room.resolution_status == true %>
     <%= link_to room.title, room_path(room) %>
-    <%= link_to "ルーム削除", room_path(room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+    <%= room.end_user.name %><br>
   <% end %>
 <% end %>

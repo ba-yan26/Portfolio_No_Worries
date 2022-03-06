@@ -1,2 +1,19 @@
-<h1>Public::Notices#new</h1>
-<p>Find me in app/views/public/notices/new.html.erb</p>
+<h1>通報入力画面</h1>
+
+<%= form_with model: @notice, url: notices_path, method: :post do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.label :notice_image %>
+    <%= f.file_field :notice_image, accept: 'image/*' %>
+  </div>
+  <div>
+    <%= f.submit "送信" %>
+  </div>
+<% end %>
