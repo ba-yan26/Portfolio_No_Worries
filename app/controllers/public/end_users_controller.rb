@@ -1,12 +1,12 @@
 class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
-  before_action :ensure_correct_end_user, only: [:show, :edit]
+  before_action :ensure_correct_end_user, only: [:edit]
 
 
 
   def show
     @end_user = EndUser.find(params[:id])
-    @rooms = current_end_user.rooms
+    @rooms = @end_user.rooms
   end
 
   def edit

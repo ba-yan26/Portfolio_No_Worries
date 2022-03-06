@@ -13,7 +13,7 @@
 <div>
   <% @room.chats.each do |chat| %>
     <%= image_tag chat.end_user.get_profile_image, size: "40x40" %>
-    <%= chat.end_user.name %>
+    <%= link_to chat.end_user.name, end_user_path(chat.end_user) %>
     <%= chat.message %>
     <% if chat.end_user == current_end_user %>
       <%= link_to "削除", room_chat_path(chat.room,chat), method: :delete %>

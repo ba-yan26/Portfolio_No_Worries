@@ -1,0 +1,6 @@
+<h1>ブックマーク一覧</h1>
+<% @rooms.each do |room| %>
+  <% if room.is_bookmarked_by?(current_end_user) %>
+    <%= link_to room.title, room_path(room) %><br>
+  <% end %>
+<% end %>
