@@ -7,6 +7,12 @@ class Public::NoticesController < ApplicationController
   def create
     @notice = Notice.new(notice_params)
     @notice.save
-    redirect_to room_path(room)
+    redirect_to rooms_path
+  end
+
+  private
+
+  def notice_params
+    params.require(:notice).permit(:title, :body, :end_user_id, :notice_image)
   end
 end
