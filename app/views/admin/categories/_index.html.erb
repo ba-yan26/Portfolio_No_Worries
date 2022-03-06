@@ -1,4 +1,6 @@
-<h3>カテゴリ一覧</h3>
-<% categories.each do |category| %>
-  <%= link_to category.name, category_path(category) %><br>
-<% end %>
+<div>
+  <h3>カテゴリ一覧</h3>
+  <% categories.each do |category| %>
+    <%= link_to category.name, category_path(category) %> |
+  <% end %>
+</div><br>
