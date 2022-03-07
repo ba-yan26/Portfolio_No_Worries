@@ -1,8 +1,29 @@
-<h1>解決一覧</h1>
+<h1 class="main-title">解決一覧</h1>
 
-<% @rooms.each do |room| %>
-  <% if room.resolution_status == true %>
-    <%= link_to room.title, room_path(room) %>
-    <%= room.end_user.name %><br>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="side-content">
+    <%= render 'admin/categories/index', categories: @categories %>
+  </div>
+
+  <div class="main-content">
+    <% @rooms.each do |room| %>
+      <div class="room-content">
+        <% if room.resolution_status == true %>
+          <div class="room-list">
+            <%= link_to room.title, room_path(room) %>
+          </div>
+          <div class="room-list">
+            <%= room.end_user.name %>
+          </div>
+          <div class="room-list">
+            <% if room.is_bookmarked_by?(current_end_user) %>
+              <%= link_to "ブックマーク解除", room_bookmarks_path(room), method: :delete %>
+            <% else %>
+              <%= link_to "ブックマーク", room_bookmarks_path(room), method: :post %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

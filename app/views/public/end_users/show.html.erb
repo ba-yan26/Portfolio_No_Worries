@@ -1,21 +1,32 @@
-<h1>マイページ</h1>
-<%= @end_user.name %>
+<h1 class="main-title">マイページ</h1>
 
-<% if @end_user == current_end_user %>
-  <%= @end_user.email %>
-  <%= link_to "編集する", edit_end_user_path(@end_user) %>
-
-  <div>
-    <%= link_to "ブックマーク", bookmarks_path %>
+<div class="container">
+  <div class="side-content">
+    <h5>プロフィール</h5>
+    <p>名前：<%= @end_user.name %></p>
+    <% if @end_user == current_end_user %>
+      <p>メール：<%= @end_user.email %></p>
+      <%= link_to "編集する", edit_end_user_path(@end_user) %>
+    
+      <div>
+        <%= link_to "ブックマーク", bookmarks_path %>
+      </div>
+    <% else %>
+      <%= link_to "通報する", new_notice_path %>
+    <% end %>
   </div>
-<% else %>
-  <%= link_to "通報する", new_notice_path %>
-<% end %>
 
+  <div class="main-content">
+    <h5>投稿一覧</h5>
+    <% @rooms.each do |room| %>
+      <div class="room-content">
+          <div class="room-list">
+            <%= link_to room.title, room_path(room) %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<h1>投稿一覧</h1>
-<% @rooms.each do |room| %>
-  <%= link_to room.title, room_path(room) %>
-<% end %>
 
 

@@ -1,23 +1,36 @@
-<h1>ルーム一覧</h1>
+<h1 class="main-title">ルーム一覧</h1>
 
-<%= render 'admin/categories/index', categories: @categories %>
-
-<div>
-  <%= link_to "ルーム作成", new_room_path %>
-  <%= link_to "解決一覧", resolution_path %>
-</div>
-
-<% @rooms.each do |room| %>
-  <div>
-    <% if room.resolution_status == false %>
-      <%= link_to room.title, room_path(room) %>
-      <%= room.end_user.name %>
-      <% if room.is_bookmarked_by?(current_end_user) %>
-        <%= link_to "ブックマーク解除", room_bookmarks_path(room), method: :delete %>
-      <% else %>
-        <%= link_to "ブックマーク", room_bookmarks_path(room), method: :post %>
-      <% end %>
+<div class="container">
+  <div class="side-content">
+    <%= render 'admin/categories/index', categories: @categories %>
+  </div>
+  
+  <div class="main-content">
+    <div>
+      <%= link_to "ルーム作成", new_room_path %>
+    </div>
+    
+    <% @rooms.each do |room| %>
+      <div class="room-content">
+        <% if room.resolution_status == false %>
+          <div class="room-list">
+            <%= link_to room.title, room_path(room) %>
+          </div>
+          <div class="room-list">
+            <%= room.end_user.name %>
+          </div>
+          <div class="room-list">
+            <% if room.is_bookmarked_by?(current_end_user) %>
+              <%= link_to "ブックマーク解除", room_bookmarks_path(room), method: :delete %>
+            <% else %>
+              <%= link_to "ブックマーク", room_bookmarks_path(room), method: :post %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
-<% end %>
+</div>
+
+
 

@@ -12,3 +12,116 @@ body {
 li {
   list-style: none;
 }
+
+a {
+  color: grey;
+}
+
+// -------header------- //
+
+header {
+  height: 60px;
+}
+
+.header-list {
+  display: flex;
+  justify-content: space-between;
+}
+.header-list ul li {
+  display: inline-block;
+  line-height: 60px;
+  margin-right: 10px;
+}
+
+// ------------------- //
+
+
+// -------main------- //
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-item: center;
+}
+
+.side-content {
+  width: 30%;
+}
+
+.side-content ul li {
+  width: 150px;
+  border-bottom: solid 1px grey;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+.main-content {
+  width: 60%;
+}
+
+.main-title {
+  text-align: center;
+  margin: 20px 0 40px 0;
+}
+
+// ------------------ //
+
+// -------room------- //
+
+.room-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.room-list:first-child {
+  width: 50%;
+  text-align: left;
+}
+.room-list:nth-child(2) {
+  width: 25%;
+  text-align: left;
+}
+.room-list:last-child {
+  width: 25%;
+  text-align: left;
+}
+
+// ------------------ //
+
+
+.category-list {
+  background-color: grey;
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+  border-radius: 10px;
+}
+
+// -------room_show------- //
+
+.room-show {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.comment-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.comment-user {
+  width: 10%;
+}
+
+.comment {
+  width: 80%;
+}
+
+.message-content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.message {
+  width: 100%;
+}
