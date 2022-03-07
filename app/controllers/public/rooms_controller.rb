@@ -21,6 +21,7 @@ class Public::RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @categories = Category.all
+    @category = @room.category
     @chat = Chat.new
   end
 
@@ -42,6 +43,7 @@ class Public::RoomsController < ApplicationController
 
   def resolution
     @rooms = Room.all
+    @categories = Category.all
   end
 
   private

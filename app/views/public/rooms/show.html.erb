@@ -1,30 +1,39 @@
-<div>
-  <%= @room.title %>
-  <%= @room.body %>
-  <%= @room.end_user.name %>
-</div>
-<div>
-  <% if @room.end_user_id == current_end_user.id %>
-    <%= link_to "編集", edit_room_path %>
-    <%= link_to "ルーム削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
-  <% end %>
-</div>
-
-<div>
-  <% @room.chats.each do |chat| %>
-    <%= image_tag chat.end_user.get_profile_image, size: "40x40" %>
-    <%= link_to chat.end_user.name, end_user_path(chat.end_user) %>
-    <%= chat.message %>
-    <% if chat.end_user == current_end_user %>
-      <%= link_to "削除", room_chat_path(chat.room,chat), method: :delete %>
+<div class="room-show">
+  <h3>お悩み詳細</h3>
+  <div>
+    <span class="category-list"><%= @room.category.name %></span>
+    <h5><small>タイトル：</small><%= @room.title %></h5>
+    <p><%= @room.body %></p>
+    <p>投稿者：<%= @room.end_user.name %></p>
+  </div>
+  <div>
+    <% if @room.end_user_id == current_end_user.id %>
+      <%= link_to "編集", edit_room_path %>
+      <%= link_to "ルーム削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
     <% end %>
-    <br>
-  <% end %>
-</div>
+  </div>
 
-<div>
-  <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post do |f| %>
-    <%= f.text_area :message %>
-    <%= f.submit "コメントする" %>
+  <% @room.chats.each do |chat| %>
+    <div class="comment-content">
+      <div class="comment-user">
+        <%= link_to end_user_path(chat.end_user) do %>
+          <%= image_tag chat.end_user.get_profile_image, size: "40x40" %><br>
+          <%= link_to chat.end_user.name %>
+        <% end %>
+      </div>
+      <div class="comment">
+        <%= chat.message %>
+        <% if chat.end_user == current_end_user %>
+          <%= link_to "削除", room_chat_path(chat.room,chat), method: :delete %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+
+  <div class="message-content">
+    <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post do |f| %>
+      <%= f.text_area :message, rows:"5", class:"message" %>
+      <%= f.submit "コメント" %>
+    <% end %>
+  </div>
 </div>

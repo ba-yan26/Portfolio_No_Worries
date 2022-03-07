@@ -2,6 +2,7 @@ class Public::BookmarksController < ApplicationController
 
   def index
     @rooms = Room.all
+    @categories = Category.all
   end
 
   def create
