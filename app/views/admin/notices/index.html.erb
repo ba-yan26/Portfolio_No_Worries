@@ -1,2 +1,8 @@
-<h1>Admin::Notices#index</h1>
-<p>Find me in app/views/admin/notices/index.html.erb</p>
+<h1>通報一覧</h1>
+
+<% @notices.each do |notice| %>
+  <%= notice.title %>
+  <%= notice.body %>
+  <%= notice.get_notice_image %>
+  <%= link_to notice.end_user.name, edit_admin_end_user_path(notice.end_user) %>
+<% end %>
