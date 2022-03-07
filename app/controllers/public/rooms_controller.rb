@@ -14,7 +14,8 @@ class Public::RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.all
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result(distinct: true)
     @categories = Category.all
   end
 
