@@ -1,6 +1,8 @@
 <h1>通報入力画面</h1>
 
-<%= form_with model: @notice, url: notices_path, method: :post do |f| %>
+<%= @end_user.name %>さんを通報します
+
+<%= form_with model: @notice, url: end_user_notices_path, method: :post do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>

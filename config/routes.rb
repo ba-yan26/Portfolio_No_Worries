@@ -13,12 +13,13 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'rooms/resolution' => 'rooms#resolution', as: 'resolution'
     get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
-    resources :end_users, only: [:show, :edit, :update]
+    resources :end_users, only: [:show, :edit, :update] do
+      resource :notices, only: [:new, :create]
+    end
     resources :rooms, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
       resources :chats, only: [:create, :destroy]
       resource :bookmarks, only: [:create, :destroy]
     end
-    resources :notices, only: [:new, :create]
     resources :categories, only: [:show]
   end
 

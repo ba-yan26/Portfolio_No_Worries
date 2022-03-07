@@ -7,12 +7,12 @@
     <% if @end_user == current_end_user %>
       <p>メール：<%= @end_user.email %></p>
       <%= link_to "編集する", edit_end_user_path(@end_user) %>
-    
+
       <div>
         <%= link_to "ブックマーク", bookmarks_path %>
       </div>
     <% else %>
-      <%= link_to "通報する", new_notice_path %>
+      <%= link_to "通報する", new_end_user_notices_path(@end_user) %>
     <% end %>
   </div>
 
