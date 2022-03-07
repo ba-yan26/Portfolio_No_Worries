@@ -3,13 +3,19 @@
 <div class="container">
   <div class="side-content">
     <%= render 'admin/categories/index', categories: @categories %>
+    <div>
+      <%= search_form_for @q do |f| %>
+        <%= f.search_field :title_or_body_cont, placeholder:"キーワードを入力" %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
   </div>
-  
+
   <div class="main-content">
     <div>
       <%= link_to "ルーム作成", new_room_path %>
     </div>
-    
+
     <% @rooms.each do |room| %>
       <div class="room-content">
         <% if room.resolution_status == false %>
