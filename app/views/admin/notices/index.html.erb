@@ -1,8 +1,24 @@
 <h1>通報一覧</h1>
 
-<% @notices.each do |notice| %>
-  <%= notice.title %>
-  <%= notice.body %>
-  <%= notice.get_notice_image %>
-  <%= link_to notice.end_user.name, edit_admin_end_user_path(notice.end_user) %>
-<% end %>
+<table class ="table">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>タイトル</th>
+      <th>通報該当者</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notices.each do |notice| %>
+      <tr>
+        <td><%= notice.id %></td>
+        <td><%= notice.title %></td>
+        <td><%= link_to notice.end_user.name, edit_admin_end_user_path(notice.end_user) %></td>
+        <td><%= notice.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td><%= link_to "詳細", admin_notice_path(notice) %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
