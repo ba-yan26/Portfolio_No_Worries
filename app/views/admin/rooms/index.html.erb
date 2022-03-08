@@ -1,2 +1,26 @@
-<h1>Admin::Rooms#index</h1>
-<p>Find me in app/views/admin/rooms/index.html.erb</p>
+<h1 class="main-title">ルーム一覧</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ルーム名</th>
+      <th>投稿者</th>
+      <th>解決ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rooms.each do |room| %>
+    <tr>
+      <td><%= link_to room.title, admin_room_path(room) %></td>
+      <td><%= room.end_user.name %></td>
+      <td>
+        <% if room.resolution_status == false %>
+          未解決
+        <% else %>
+          解決済
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

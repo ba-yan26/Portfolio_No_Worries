@@ -27,9 +27,13 @@
           </div>
           <div class="room-list">
             <% if room.is_bookmarked_by?(current_end_user) %>
-              <%= link_to "ブックマーク解除", room_bookmarks_path(room), method: :delete %>
+              <%= link_to room_bookmarks_path(room), method: :delete do %>
+                ブックマーク解除
+              <% end %>
             <% else %>
-              <%= link_to "ブックマーク", room_bookmarks_path(room), method: :post %>
+              <%= link_to room_bookmarks_path(room), method: :post do %>
+                ブックマーク
+              <% end %>
             <% end %>
           </div>
         <% end %>

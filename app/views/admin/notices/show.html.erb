@@ -1,2 +1,6 @@
-<h1>Admin::Notices#show</h1>
-<p>Find me in app/views/admin/notices/show.html.erb</p>
+<h1>通報詳細</h1>
+
+<%= @notice.title %>
+<%= @notice.body %>
+<%= image_tag @notice.get_notice_image %>
+<%= link_to @notice.end_user.name, edit_admin_end_user_path(@notice.end_user) %>

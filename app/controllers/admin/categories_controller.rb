@@ -1,4 +1,6 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @categories = Category.all
     @category = Category.new
@@ -12,6 +14,11 @@ class Admin::CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+  end
+  
+  def show
+    @category = Category.find(params[:id])
+    @categories = Category.all
   end
 
   def update

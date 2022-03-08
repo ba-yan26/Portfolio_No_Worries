@@ -1,11 +1,27 @@
 <h1>ユーザー一覧</h1>
-
-<% @end_users.each do |end_user| %>
-  <%= end_user.id %>
-  <%= link_to end_user.name, edit_admin_end_user_path(end_user) %>
-  <% if end_user.is_delete %>
-    退会中
-  <% else %>
-    有効
-  <% end %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>名前</th>
+      <th>会員ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @end_users.each do |end_user| %>
+      <td><%= end_user.id %></td>
+      <td><%= link_to end_user.name, edit_admin_end_user_path(end_user) %></td>
+      <td>
+        <% if end_user.is_delete %>
+          退会中
+        <% else %>
+          有効
+        <% end %>
+      </td>
+    </tr>
+    
+    <% end %>
+    
+  </tbody>
+</table>
