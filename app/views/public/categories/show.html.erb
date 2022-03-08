@@ -6,13 +6,9 @@
   </div>
 
   <div class="main-content">
-    <div>
-      <%= link_to "ルーム作成", new_room_path %>
-    </div>
-
     <% @rooms.each do |room| %>
-      <div class="room-content">
-        <% if room.resolution_status == false %>
+      <% if room.resolution_status == false %>
+        <div class="room-content">
           <div class="room-list">
             <%= link_to room.title, room_path(room) %>
           </div>
@@ -26,8 +22,8 @@
               <%= link_to "ブックマーク", room_bookmarks_path(room), method: :post %>
             <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
