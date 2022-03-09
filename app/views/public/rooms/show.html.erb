@@ -27,6 +27,8 @@
       </div>
       <div class="comment <%= "best-answer" if @room.best_answer == chat.id %>">
         <%= chat.message %>
+      </div>
+      <div class="comment-side">
         <% if chat.end_user == current_end_user %>
           <%= link_to room_chat_path(chat.room,chat), method: :delete do %>
             <i class="fas fa-trash-alt"></i>
@@ -35,7 +37,9 @@
         <% if @room.end_user == current_end_user %>
           <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
             <%= f.hidden_field :best_answer, value: chat.id %>
-            <%= f.submit "ベストアンサー", disabled: @room.best_answer.present? %>
+            <%= f.button :type => "submit", disabled: @room.best_answer.present? do %>
+              <i class="fa-solid fa-crown"></i>
+            <% end %>
           <% end %>
         <% end %>
       </div>
