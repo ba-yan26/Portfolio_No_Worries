@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+  before_action :end_user_state, only: [:create]
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -24,4 +26,25 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def after_sign_in_path_for(resource)
+    rooms_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
+  protected
+
+  def end_user_state
+    @end_user = EndUser.find_by(email: params[:end_user][:email])
+    if @end_user
+      if @end_user.valid_password?(params[:end_user][:password]) && (@end_user.is_delete == true)
+        flash[:notice] = "退会済みです。再度ご登録ください。"
+        redirect_to new_end_user_registration_path
+      end
+    end
+  end
+
 end

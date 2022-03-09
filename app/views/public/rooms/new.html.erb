@@ -1,2 +1,10 @@
-<h1>Public::Rooms#new</h1>
-<p>Find me in app/views/public/rooms/new.html.erb</p>
+<h1>ルーム作成</h1>
+<%= form_with model: @room, url: rooms_path, method: :post do |f| %>
+  <%= f.label :タイトル %>
+  <%= f.text_field :title %><br>
+  <%= f.label :本文 %>
+  <%= f.text_area :body %><br>
+  <%= f.label :カテゴリ %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => "選択してくだい" %><br>
+  <%= f.submit "ルーム作成" %>
+<% end %>

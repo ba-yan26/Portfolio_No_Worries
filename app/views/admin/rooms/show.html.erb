@@ -1,2 +1,35 @@
-<h1>Admin::Rooms#show</h1>
-<p>Find me in app/views/admin/rooms/show.html.erb</p>
+<div class="room-show">
+  <h3>お悩み詳細</h3>
+  <div class="show-content">
+    <span class="category-list"><%= @room.category.name %></span>
+    <h5><small>タイトル：</small><%= @room.title %></h5>
+    <p><%= @room.body %></p>
+    投稿者：<%= @room.end_user.name %>
+      <%= link_to "ルーム削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+  </div>
+
+
+
+  <% @room.chats.each do |chat| %>
+    <div class="comment-content">
+      <div class="comment-user">
+        <%= link_to end_user_path(chat.end_user) do %>
+          <%= image_tag chat.end_user.get_profile_image, size: "40x40" %><br>
+          <%= chat.end_user.name %>
+        <% end %>
+      </div>
+      <div class="comment <%= "best-answer" if @room.best_answer == chat.id %>">
+        <%= chat.message %>
+        <% if chat.end_user == current_end_user %>
+          <%= link_to "削除", room_chat_path(chat.room,chat), method: :delete %>
+        <% end %>
+        <% if @room.end_user == current_end_user %>
+          <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
+            <%= f.hidden_field :best_answer, value: chat.id %>
+            <%= f.submit "ベストアンサー", disabled: @room.best_answer.present? %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

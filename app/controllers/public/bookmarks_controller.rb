@@ -1,2 +1,21 @@
 class Public::BookmarksController < ApplicationController
+
+  def index
+    @rooms = Room.all
+    @categories = Category.all
+  end
+
+  def create
+    @room = Room.find(params[:room_id])
+    bookmark = current_end_user.bookmarks.new(room_id: @room.id)
+    bookmark.save
+    redirect_back(fallback_location: root_path)
+  end
+
+  def destroy
+    @room = Room.find(params[:room_id])
+    bookmark = current_end_user.bookmarks.find_by(room_id: @room.id)
+    bookmark.destroy
+    redirect_back(fallback_location: root_path)
+  end
 end

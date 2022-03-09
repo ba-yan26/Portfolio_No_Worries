@@ -1,2 +1,27 @@
-<h1>Admin::EndUsers#index</h1>
-<p>Find me in app/views/admin/end_users/index.html.erb</p>
+<h1>ユーザー一覧</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>名前</th>
+      <th>会員ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @end_users.each do |end_user| %>
+      <td><%= end_user.id %></td>
+      <td><%= link_to end_user.name, edit_admin_end_user_path(end_user) %></td>
+      <td>
+        <% if end_user.is_delete %>
+          退会中
+        <% else %>
+          有効
+        <% end %>
+      </td>
+    </tr>
+    
+    <% end %>
+    
+  </tbody>
+</table>

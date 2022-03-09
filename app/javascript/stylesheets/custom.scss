@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: grey;
+}
+
+// -------header------- //
+
+header {
+  height: 60px;
+}
+
+.header-list {
+  display: flex;
+  justify-content: space-between;
+}
+.header-list ul li {
+  display: inline-block;
+  line-height: 60px;
+  margin-right: 10px;
+}
+
+// ------------------- //
+
+
+// -------main------- //
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-item: center;
+}
+
+.side-content {
+  width: 30%;
+}
+
+.side-content ul li {
+  width: 150px;
+  border-bottom: solid 1px grey;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+.main-content {
+  width: 60%;
+}
+
+.main-title {
+  text-align: center;
+  margin: 20px 0 40px 0;
+}
+
+// ------------------ //
+
+// -------room------- //
+
+.create {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.create a {
+  background-color: #00ff7f;
+  padding: 10px 15px 10px 15px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.room-content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px grey;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.room-list:first-child {
+  width: 50%;
+  text-align: left;
+}
+.room-list:nth-child(2) {
+  width: 25%;
+  text-align: left;
+}
+.room-list:last-child {
+  width: 25%;
+  text-align: left;
+}
+
+// ------------------ //
+
+
+.category-list {
+  background-color: grey;
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+  border-radius: 10px;
+}
+
+// -------room_show------- //
+
+.room-show {
+  width: 800px;
+  margin: 30px auto;
+}
+
+.show-content {
+  margin: 20px 0;
+}
+
+.room-title {
+  margin-top: 15px;
+}
+
+.comment-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.comment-user {
+  width: 10%;
+}
+
+.comment {
+  width: 90%;
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.comment:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.message-content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.message {
+  width: 100%;
+}
+
+.best-answer {
+  background-color: red;
+  color: white;
+}

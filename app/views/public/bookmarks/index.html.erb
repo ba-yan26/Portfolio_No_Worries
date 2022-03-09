@@ -1,24 +1,14 @@
-<h1 class="main-title">ルーム一覧</h1>
+<h1 class="main-title">ブックマーク</h1>
 
 <div class="container">
   <div class="side-content">
     <%= render 'admin/categories/index', categories: @categories %>
-    <div>
-      <%= search_form_for @q do |f| %>
-        <%= f.search_field :title_or_body_cont, placeholder:"キーワードを入力" %>
-        <%= f.submit "検索" %>
-      <% end %>
-    </div>
   </div>
 
   <div class="main-content">
-    <div class="create">
-      <%= link_to "ルーム作成", new_room_path %>
-    </div>
-    
     <% @rooms.each do |room| %>
-      <% if room.resolution_status == false %>
-        <div class="room-content">
+      <div class="room-content">
+        <% if room.is_bookmarked_by?(current_end_user) %>
           <div class="room-list">
             <%= link_to room.title, room_path(room) %>
           </div>
@@ -32,8 +22,11 @@
               <%= link_to "ブックマーク", room_bookmarks_path(room), method: :post %>
             <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
+
+
+
