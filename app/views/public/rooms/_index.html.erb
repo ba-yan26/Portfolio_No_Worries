@@ -1,0 +1,30 @@
+  <div class="create">
+    <%= link_to "ルーム作成", new_room_path %>
+  </div>
+
+  <% rooms.each do |room| %>
+    <% if room.resolution_status == false %>
+      <div class="room-content">
+        <div class="room-list">
+          <%= link_to room.title, room_path(room) %>
+        </div>
+        <div class="room-list">
+          <%= room.end_user.name %>
+        </div>
+        <div class="room-list">
+          <i class="fas fa-comment-alt"></i>：<%= room.chats.count %>
+        </div>
+        <div class="room-list">
+          <% if room.is_bookmarked_by?(current_end_user) %>
+            <%= link_to room_bookmarks_path(room), method: :delete do %>
+              <i class="fas fa-star delete"></i>
+            <% end %>
+          <% else %>
+            <%= link_to room_bookmarks_path(room), method: :post do %>
+              <i class="fas fa-star post"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>

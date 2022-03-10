@@ -2,7 +2,9 @@
   <ul>
     <% categories.each do |category| %>
     <li>
-      <%= link_to category.name, category_path(category) %>
+      <%= link_to category_path(category) do %>
+        <%= category.name %> （<%= category.rooms.count %>）
+      <% end %>
     </li>
     <% end %>
   </ul>

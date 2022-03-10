@@ -78,7 +78,7 @@ header {
 // -------room------- //
 
 .create {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-align: right;
 }
 
@@ -103,12 +103,22 @@ header {
   text-align: left;
 }
 .room-list:nth-child(2) {
-  width: 25%;
+  width: 20%;
+  text-align: left;
+}
+.room-list:nth-child(3) {
+  width: 15%;
   text-align: left;
 }
 .room-list:last-child {
-  width: 25%;
+  width: 15%;
   text-align: left;
+}
+.delete {
+  color: gold;
+}
+.post {
+  color: grey;
 }
 
 // ------------------ //

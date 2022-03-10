@@ -1,7 +1,7 @@
 class Public::BookmarksController < ApplicationController
 
   def index
-    @rooms = Room.all
+    @rooms = Room.all.order(created_at: :desc)
     @categories = Category.all
   end
 
