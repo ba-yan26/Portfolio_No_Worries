@@ -38,7 +38,7 @@
           <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
             <%= f.hidden_field :best_answer, value: chat.id %>
             <%= f.button :type => "submit", disabled: @room.best_answer.present? do %>
-              <i class="fa-solid fa-crown"></i>
+              <i class="fas fa-crown"></i>
             <% end %>
           <% end %>
         <% end %>
