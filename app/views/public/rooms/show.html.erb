@@ -26,7 +26,7 @@
         <% end %>
       </div>
       <div class="comment <%= "best-answer" if @room.best_answer == chat.id %>">
-        <%= chat.message %>
+        <%= safe_join(chat.message.split("\n"),tag(:br)) %>
       </div>
       <div class="comment-side">
         <% if chat.end_user == current_end_user %>

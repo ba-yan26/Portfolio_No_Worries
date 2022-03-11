@@ -36,10 +36,33 @@ header {
   display: flex;
   justify-content: space-between;
 }
-.header-list ul li {
-  display: inline-block;
+
+.header-list h1 {
   line-height: 60px;
-  margin-right: 10px;
+}
+
+.header-menu ul li {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-menu {
+  color: #fff;
+  width: 10%;
+}
+
+.header-icon {
+  line-height: 60px;
+  text-align: center;
+}
+
+.header-icon:hover {
+  cursor: pointer;
+}
+
+.drop-menu {
+  display: none;
+  margin-top: 20px;
 }
 
 // ------------------- //
@@ -215,3 +238,40 @@ header {
   background-color: red;
   color: white;
 }
+
+
+form {
+  position:relative;
+  max-width:300px;
+  margin-bottom:20px;
+}
+
+.text-area {
+  height:50px;
+  padding:0 10px;
+  position:absolute;
+  left:0;
+  top:0;
+  border-radius:2px;
+  outline:0;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background:#eee;
+}
+
+.button {
+  height:50px;
+  position:absolute;
+  left:165px;/*アイコン左右の位置調整*/
+  top:0;
+  background:none;
+  color:#666;
+  border:none;
+  font-size:20px;/*アイコンサイズ*/
+}
+
+::-webkit-search-cancel-button {
+   -webkit-appearance: none;
+}
+
+

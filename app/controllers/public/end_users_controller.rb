@@ -2,8 +2,6 @@ class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
   before_action :ensure_correct_end_user, only: [:edit]
 
-
-
   def show
     @end_user = EndUser.find(params[:id])
     @rooms = @end_user.rooms
@@ -15,8 +13,11 @@ class Public::EndUsersController < ApplicationController
 
   def update
     @end_user = EndUser.find(params[:id])
-    @end_user.update(end_user_params)
-    redirect_to end_user_path(@end_user)
+    if @end_user.update(end_user_params)
+      redirect_to end_user_path(@end_user)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def ensure_correct_end_user

@@ -1,4 +1,5 @@
 class Public::BookmarksController < ApplicationController
+  before_action :authenticate_end_user!
 
   def index
     @rooms = Room.all.order(created_at: :desc)

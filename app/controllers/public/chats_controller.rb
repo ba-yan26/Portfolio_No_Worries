@@ -1,4 +1,5 @@
 class Public::ChatsController < ApplicationController
+  before_action :authenticate_end_user!
 
   def create
     @room = Room.find(params[:room_id])
