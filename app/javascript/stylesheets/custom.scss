@@ -46,6 +46,12 @@ header {
   margin-bottom: 30px;
 }
 
+.header-menu ul li:last-child {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
 .header-menu {
   color: #fff;
   width: 10%;
@@ -62,7 +68,9 @@ header {
 
 .drop-menu {
   display: none;
-  margin-top: 20px;
+  padding-top: 20px;
+  border: solid 1px grey;
+  border-radius: 15px;
 }
 
 // ------------------- //
@@ -172,7 +180,12 @@ header {
 .comment-content {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+
+.chat-time {
+  text-align: right;
+  font-size: 10px;
 }
 
 .comment-user {
@@ -202,7 +215,7 @@ header {
 }
 
 .comment-side {
-  width: 10%;
+  width: 15%;
   margin-left: 15px;
   display: flex;
   align-items: flex-end;
@@ -218,7 +231,6 @@ header {
 
 .fa-crown {
   font-size: 18px;
-  color: #ffd700;
 }
 
 .comment-side form {
@@ -235,12 +247,11 @@ header {
 }
 
 .best-answer {
-  background-color: red;
-  color: white;
+  color: gold;
 }
 
 
-form {
+.search-form {
   position:relative;
   max-width:300px;
   margin-bottom:20px;
