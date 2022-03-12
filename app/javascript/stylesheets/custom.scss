@@ -48,13 +48,14 @@ header {
 
 .header-menu ul li:last-child {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 
 .header-menu {
   color: #fff;
-  width: 10%;
+  width: 15%;
+  z-index: 10;
 }
 
 .header-icon {
@@ -68,9 +69,10 @@ header {
 
 .drop-menu {
   display: none;
-  padding-top: 20px;
-  border: solid 1px grey;
-  border-radius: 15px;
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 0 6px gray;
+  border-radius: 10px;
 }
 
 // ------------------- //
@@ -180,7 +182,7 @@ header {
 .comment-content {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .chat-time {
@@ -219,6 +221,7 @@ header {
   margin-left: 15px;
   display: flex;
   align-items: flex-end;
+
 }
 
 .comment-side a {

@@ -9,8 +9,10 @@
       <%= link_to edit_room_path do %>
         <i class="fa-solid fa-pen-to-square"></i>
       <% end %>
-      <%= link_to room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
-        <i class="fas fa-trash-alt"></i>
+      <% unless @room.best_answer %>
+        <%= link_to room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
     <% end %>
   </div>
@@ -34,8 +36,10 @@
       <div class="comment-side">
         <div class="comment-side-flex">
           <% if chat.end_user == current_end_user %>
-            <%= link_to room_chat_path(chat.room,chat), method: :delete do %>
-              <i class="fas fa-trash-alt"></i>
+            <% unless @room.best_answer %>
+              <%= link_to room_chat_path(chat.room,chat), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             <% end %>
           <% end %>
           <% if @room.end_user == current_end_user %>
