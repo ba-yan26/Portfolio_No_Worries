@@ -1,4 +1,4 @@
-    <% @room.chats.each do |chat| %>
+    <% @room.chats.reverse.each do |chat| %>
       <div class="comment-content">
         <div class="comment-user">
           <%= link_to end_user_path(chat.end_user) do %>
