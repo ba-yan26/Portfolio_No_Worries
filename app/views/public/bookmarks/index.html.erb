@@ -18,17 +18,8 @@
           <div class="room-list">
             <i class="fas fa-comment-alt"></i>：<%= room.chats.count %>
           </div>
-
-          <div class="room-list">
-            <% if room.is_bookmarked_by?(current_end_user) %>
-              <%= link_to room_bookmarks_path(room), method: :delete do %>
-                <i class="fas fa-star delete"></i>
-              <% end %>
-            <% else %>
-              <%= link_to room_bookmarks_path(room), method: :post do %>
-                <i class="fas fa-star post"></i>
-              <% end %>
-            <% end %>
+          <div class="room-list bookmark_btn_<%= room.id %>">
+            <%= render 'public/bookmarks/bookmark', room: room %>
           </div>
         </div>
       <% end %>

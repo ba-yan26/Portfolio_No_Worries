@@ -18,45 +18,12 @@
   </div>
 
 
-
-  <% @room.chats.each do |chat| %>
-    <div class="comment-content">
-      <div class="comment-user">
-        <%= link_to end_user_path(chat.end_user) do %>
-          <%= image_tag chat.end_user.get_profile_image, size: "40x40" %><br>
-          <%= chat.end_user.name %>
-        <% end %>
-      </div>
-      <div class="comment">
-        <%= safe_join(chat.message.split("\n"),tag(:br)) %>
-        <div class="chat-time">
-          <span><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></span>
-        </div>
-      </div>
-      <div class="comment-side">
-        <div class="comment-side-flex">
-          <% if chat.end_user == current_end_user %>
-            <% unless @room.best_answer %>
-              <%= link_to room_chat_path(chat.room,chat), method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            <% end %>
-          <% end %>
-          <% if @room.end_user == current_end_user %>
-            <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
-              <%= f.hidden_field :best_answer, value: chat.id %>
-              <%= f.button :type => "submit", disabled: @room.best_answer.present? do %>
-                <i class="fas fa-crown <%= "best-answer" if @room.best_answer == chat.id %>"></i>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <div class="chat_btn">
+    <%= render 'public/chats/chat', locals: {chat: @chat, room: @room} %>
+  </div>
 
   <div class="message-content">
-    <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post do |f| %>
+    <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post, local: false do |f| %>
       <%= f.text_area :message, rows:"5", class:"message" %>
       <%= f.submit "コメント" %>
     <% end %>
