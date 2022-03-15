@@ -3,6 +3,10 @@ class HomesController < ApplicationController
     
   end
   
+  def confirm_notice
+    
+  end
+  
   def unsubscribe
     @end_user = EndUser.find(params[:id])
   end

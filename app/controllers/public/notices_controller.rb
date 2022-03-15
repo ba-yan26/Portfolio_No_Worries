@@ -9,7 +9,7 @@ class Public::NoticesController < ApplicationController
   def create
     @notice = Notice.new(notice_params)
     if @notice.save
-      redirect_to rooms_path
+      redirect_to confirm_notice_path
     else
       redirect_back(fallback_location: root_path)
     end
@@ -21,4 +21,3 @@ class Public::NoticesController < ApplicationController
     params.require(:notice).permit(:title, :body, :notice_image).merge(end_user_id: params[:end_user_id])
   end
 end
- 
