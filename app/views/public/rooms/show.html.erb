@@ -1,5 +1,18 @@
 <div class="room-show">
   <h3>お悩み詳細</h3>
+
+  <div class="comment-menu">
+    <div class="comment-trigger">
+      <p>コメント</p>
+    </div>
+    <div class="message-content">
+      <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post, local: false do |f| %>
+        <%= f.text_area :message, rows:"5", class:"message" %>
+        <%= f.submit "コメント" %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="show-content">
     <span class="category-list"><%= @room.category.name %></span>
     <h5 class="room-title"><small>タイトル：</small><%= @room.title %></h5>
@@ -17,15 +30,7 @@
     <% end %>
   </div>
 
-
   <div class="chat_btn">
     <%= render 'public/chats/chat', locals: {chat: @chat, room: @room} %>
-  </div>
-
-  <div class="message-content">
-    <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post, local: false do |f| %>
-      <%= f.text_area :message, rows:"5", class:"message" %>
-      <%= f.submit "コメント" %>
-    <% end %>
   </div>
 </div>

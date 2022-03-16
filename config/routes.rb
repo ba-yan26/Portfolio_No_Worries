@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resource :bookmarks, only: [:create, :destroy]
     end
     resources :categories, only: [:show]
+    resources :notifications, only: [:index]
   end
 
   namespace :admin do
