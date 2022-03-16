@@ -240,9 +240,24 @@ header {
   display: inline-block;
 }
 
+.comment-trigger:hover {
+  cursor: pointer;
+}
+
 .message-content {
-  width: 70%;
+  width: 30%;
   margin: 0 auto;
+  display: none;
+  position: fixed;
+  left: 35%;
+  z-index: 10;
+}
+
+.message-content textarea {
+  border-radius: 15px;
+  border: solid 0px;
+  box-shadow: 0 0 6px gray;
+  padding: 10px;
 }
 
 .message {
@@ -253,6 +268,7 @@ header {
   color: gold;
 }
 
+// -------searchform------- //
 
 .search-form {
   position:relative;
