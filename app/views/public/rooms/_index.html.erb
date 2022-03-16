@@ -1,0 +1,22 @@
+  <div class="create">
+    <%= link_to "ルーム作成", new_room_path %>
+  </div>
+
+  <% rooms.each do |room| %>
+    <% if room.resolution_status == false %>
+      <div class="room-content">
+        <div class="room-list">
+          <%= link_to room.title, room_path(room) %>
+        </div>
+        <div class="room-list">
+          <%= room.end_user.name %>
+        </div>
+        <div class="room-list">
+          <i class="fas fa-comment-alt"></i>：<%= room.chats.count %>
+        </div>
+        <div class="room-list bookmark_btn_<%= room.id %>">
+          <%= render 'public/bookmarks/bookmark', room: room %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>

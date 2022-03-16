@@ -15,7 +15,7 @@ class Public::RoomsController < ApplicationController
 
   def index
     @q = Room.ransack(params[:q])
-    @rooms = @q.result(distinct: true)
+    @rooms = @q.result(distinct: true).order(created_at: :desc)
     @categories = Category.all
   end
 

@@ -1,4 +1,5 @@
 class Public::NoticesController < ApplicationController
+  before_action :authenticate_end_user!
 
   def new
     @notice = Notice.new
@@ -7,8 +8,11 @@ class Public::NoticesController < ApplicationController
 
   def create
     @notice = Notice.new(notice_params)
-    @notice.save
-    redirect_to rooms_path
+    if @notice.save
+      redirect_to confirm_notice_path
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private
@@ -17,4 +21,3 @@ class Public::NoticesController < ApplicationController
     params.require(:notice).permit(:title, :body, :notice_image).merge(end_user_id: params[:end_user_id])
   end
 end
- 
