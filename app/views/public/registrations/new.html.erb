@@ -1,36 +1,48 @@
-<h2>Sign up</h2>
+<div class="sign-up-content">
+  <h2>新規登録</h2>
 
+  <div class="sign-up-flex">
+    <div class="prohibition">
+      <h4>確認事項</h4>
+      <ul>
+        <li>1) 誹謗・中傷をするような投稿、コメントを禁ずる。</li>
+        <li>2) SNS(twitter,LINE,instagram)の交換等の個人的交流を目的とした行為を禁ずる。</li>
+        <li>3) ルーム内での荒らし行為を禁ずる。</li>
+        <li>4) 上記内容を遵守すること。できない場合は強制退会処分とする</li>
+      </ul>
+    </div>
 
-<%= flash[:notice] %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+    <div class="sign-up">
+      <%= flash[:notice] %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <div class="field">
+          <%= f.text_field :name, placeholder:"ニックネーム", autofocus: true, autocomplete: "name" %>
+        </div>
+
+        <div class="field">
+          <%= f.email_field :email, placeholder:"メールアドレス", autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, placeholder:"パスワード(6文字以上)", autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password_confirmation, placeholder:"パスワード確認", autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.check_box :agreement, :as => :boolean, checked:false %>
+          <small>確認事項に同意する</small>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "登録する" %>
+        </div>
+      <% end %>
+      <%= render "public/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>

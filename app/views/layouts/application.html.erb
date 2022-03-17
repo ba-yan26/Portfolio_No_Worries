@@ -12,7 +12,11 @@
   <body>
     <header>
       <div class="header-list">
-        <h1>No Worries</h1>
+        <div class="header-logo">
+          <%= link_to root_path do %>
+            <%= image_tag "logo.jpg" %>
+          <% end %>
+        </div>
         <div class=" header-menu">
           <div class="header-icon trigger">
             <%= image_tag "human.png", size: "32x32" %>
@@ -53,7 +57,7 @@
                 <%= link_to "ログイン", new_end_user_session_path %>
               </li>
               <li>
-                <%= link_to "新規作成", new_end_user_registration_path %>
+                <%= link_to "新規登録", new_end_user_registration_path %>
               </li>
               <% end %>
             <% end %>
@@ -61,7 +65,8 @@
         </div>
       </div>
     </header>
-
-    <%= yield %>
+    <div class="container-all">
+      <%= yield %>
+    </div>
   </body>
 </html>

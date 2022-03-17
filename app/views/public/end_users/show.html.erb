@@ -11,6 +11,9 @@
       <div>
         <%= link_to "ブックマーク", bookmarks_path %>
       </div>
+      <div>
+        <%= link_to "お知らせ", notifications_path %>
+      </div>
     <% else %>
       <%= link_to "通報する", new_end_user_notices_path(@end_user) %>
     <% end %>

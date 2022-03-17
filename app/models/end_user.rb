@@ -15,6 +15,7 @@ class EndUser < ApplicationRecord
 
   validates :name, presence: :true
   validates :email, presence: :true
+  validates_acceptance_of :agreement, allow_nil: false, on: :create
 
   def get_profile_image
     profile_image.attached? ? profile_image : "no_image.jpg"

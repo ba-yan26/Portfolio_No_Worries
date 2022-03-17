@@ -5,7 +5,7 @@
 }
 
 body {
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -26,19 +26,31 @@ a {
   color: grey;
 }
 
+.container-all {
+  width: 1024px;
+  margin: 0 auto;
+}
+
 // -------header------- //
 
 header {
-  height: 60px;
+  height: 80px;
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.header-logo {
+  text-align: center;
+  line-height: 80px;
+}
+
+.header-logo img {
+  width: 40%;
 }
 
 .header-list {
   display: flex;
   justify-content: space-between;
-}
-
-.header-list h1 {
-  line-height: 60px;
 }
 
 .header-menu ul li {
@@ -59,7 +71,7 @@ header {
 }
 
 .header-icon {
-  line-height: 60px;
+  line-height: 80px;
   text-align: center;
 }
 
@@ -76,6 +88,102 @@ header {
 }
 
 // ------------------- //
+
+// -------top------- //
+
+.top-container {
+  padding-top: 50px;
+  display: flex;
+}
+
+.top-topic {
+  width: 70%;
+}
+
+.top-login {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+// ----------------- //
+
+.sign-up-content {
+  padding-top: 50px;
+}
+
+.sign-up-content h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sign-up-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.prohibition {
+  width: 40%;
+}
+
+.prohibition ul li {
+  margin-bottom: 20px;
+}
+
+.sign-up {
+  width: 40%;
+}
+
+.sign-up input {
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px grey;
+}
+
+.sign-up .field {
+  margin-bottom: 20px;
+}
+
+.sign-up .actions {
+  margin-bottom: 20px;
+}
+
+
+.sign-in-content {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.sign-in-shadow {
+  width: 450px;
+  margin: 0 auto;
+  padding: 20px 0;
+  box-shadow: 0 0 6px gray;
+  border-radius: 10px;
+}
+
+.sign-in-shadow h2 {
+  margin-bottom: 20px;
+}
+
+.sign-in-shadow input {
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px grey;
+}
+
+.sign-in .field {
+  margin-bottom: 20px;
+}
+
+.sign-in .actions {
+  margin-bottom: 20px;
+}
+
+.sign-in a {
+  padding: 5px;
+}
 
 
 // -------main------- //
@@ -113,10 +221,11 @@ header {
 .create {
   margin-bottom: 40px;
   text-align: right;
+  line-height: 80px;
 }
 
 .create a {
-  background-color: #00ff7f;
+  background-color: #87cefa;
   padding: 10px 15px 10px 15px;
   color: #fff;
   font-weight: bold;
@@ -152,6 +261,33 @@ header {
 }
 .post {
   color: grey;
+}
+
+.room-create {
+  width: 100%;
+}
+
+.room-create-content {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.room-create-content h2 {
+  margin-bottom: 20px;
+}
+
+.room-create-content input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px grey;
+  margin-bottom: 20px;
+}
+
+.room-create-content textarea {
+  height: 400px;
 }
 
 // ------------------ //
