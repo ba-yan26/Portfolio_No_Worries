@@ -1,6 +1,12 @@
+<% visiter = notification.visiter %>
+<!-- 通知を送っているユーザーをvisiterに代入 -->
+<% room = notification.room %>
+<!-- 通知されたroomをroomに代入 -->
 
-<%= notification_form(notification) %><span><%= "(#{time_ago_in_words(notification.created_at)}前)" %></span>
-<br>
-<% unless @chat.nil? %>
-  <p><%= @chat %></p>
-<% end %>
+<%= link_to end_user_path(visiter) do %>
+  <strong><%= visiter.name %></strong>
+<% end %>さんが
+<%= link_to room_path(notification.room_id) do %>
+  <strong>あなたの投稿</strong>
+<% end %>にコメントしました。
+<%= "(#{time_ago_in_words(notification.created_at)}前)" %>

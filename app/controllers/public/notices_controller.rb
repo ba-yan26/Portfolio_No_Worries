@@ -18,6 +18,6 @@ class Public::NoticesController < ApplicationController
   private
 
   def notice_params
-    params.require(:notice).permit(:title, :body, :notice_image).merge(end_user_id: params[:end_user_id])
+    params.require(:notice).permit(:name, :body, :notice_image).merge(end_user_id: params[:end_user_id])
   end
 end

@@ -9,27 +9,25 @@ class Room < ApplicationRecord
     bookmarks.exists?(end_user_id: end_user.id)
   end
   
-  def create_notification_chat!(current_end_user, chat_id)
-    temp_ids = Chat.select(:end_user_id).where(room_id: id).where.not(end_user_id: current_end_user.id).distinct
-    temp_ids.each do |temp_id|
-      save_notification_chat!(current_end_user, chat_id, temp_id["end_user_id"])
-    end
-    
-    save_notification_chat!(current_end_user, chat_id, end_user_id)if temp_ids.blank?
-  end
-  
-  def save_notification_chat!(current_end_user, chat_id, visited_id)
+  def create_notification_by(current_end_user)
     notification = current_end_user.active_notifications.new(
+    # ログインしているユーザーが自分からの通知を作成する
+    # 以下3行の情報を取得して通知の作成をする
       room_id: id,
-      chat_id: chat_id,
-      visited_id: visited_id,
-      action: "chat"
+      visited_id: end_user_id,
+      action: 'chat'
     )
     
-    if notification.visiter_id == notification.visited_id
-      notification.checked = true
-    end
-      notification.save if notification.valid?
+    # if notification.visiter_id == notification.visited_id
+    # # 通知を作成した人のidと通知を受け取る人のidが同じなら
+    #   notification.checked = true
+    #   # true(既読)にする
+    # end
+    
+    notification.save
+    # 通知をセーブして
+      if notification.valid?
+      # エラーがなければtrueを返す
+      end
   end
-
 end

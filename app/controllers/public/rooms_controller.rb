@@ -32,8 +32,11 @@ class Public::RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-    @room.update(room_params)
-    redirect_to room_path(@room)
+    if @room.update(room_params)
+      redirect_to room_path(@room)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

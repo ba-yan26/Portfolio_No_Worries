@@ -58,6 +58,7 @@ gem 'devise'
 gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
 gem 'ransack'
+gem 'pry-byebug', group: :development
 
 group :production do
   gem 'mysql2'

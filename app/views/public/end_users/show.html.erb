@@ -2,12 +2,17 @@
 
 <div class="container">
   <div class="side-content">
-    <h5>プロフィール</h5>
-    <p>名前：<%= @end_user.name %></p>
+    <div>
+      <%= image_tag @end_user.get_profile_image, size:"40x40" %>
+      <%= @end_user.name %>
+    </div>
     <% if @end_user == current_end_user %>
-      <p>メール：<%= @end_user.email %></p>
-      <%= link_to "編集する", edit_end_user_path(@end_user) %>
-
+      <div>
+        <%= @end_user.email %>
+      </div>
+      <div>
+        <%= link_to "編集する", edit_end_user_path(@end_user) %>
+      </div>
       <div>
         <%= link_to "ブックマーク", bookmarks_path %>
       </div>
@@ -25,6 +30,13 @@
       <div class="room-content">
           <div class="room-list">
             <%= link_to room.title, room_path(room) %>
+          </div>
+          <div class="room-list">
+            <% if room.resolution_status == false %>
+              未解決
+            <% else %>
+              解決済
+            <% end %>
           </div>
       </div>
     <% end %>

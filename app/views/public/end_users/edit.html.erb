@@ -1,9 +1,11 @@
-<h1>マイページ編集</h1>
-<%= form_with model: @end_user, url: end_user_path(@end_user), method: :patch do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.submit "編集する" %>
-<% end %>
-<%= link_to "退会する", confirm_unsubscribe_path(@end_user) %>
+<div class="form-create">
+  <div class="form-create-content">
+    <h2>ユーザー編集</h2>
+    <%= form_with model: @end_user, url: end_user_path(@end_user), method: :patch do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_field :email %>
+      <%= f.submit "編集" %>
+    <% end %>
+    <%= link_to "退会する", confirm_unsubscribe_path(@end_user) %>
+  </div>
+</div>

@@ -16,7 +16,7 @@
           <div class="comment-side-flex">
             <% if chat.end_user == current_end_user %>
               <% unless @room.best_answer %>
-                <%= link_to room_chat_path(chat.room,chat), method: :delete do %>
+                <%= link_to room_chat_path(chat.room,chat), method: :delete, remote: true do %>
                   <i class="fas fa-trash-alt"></i>
                 <% end %>
               <% end %>

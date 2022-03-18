@@ -1,5 +1,5 @@
-<div class="room-create">
-  <div class="room-create-content">
+<div class="form-create">
+  <div class="form-create-content">
     <h2>ルーム作成</h2>
     <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
       <%= f.text_field :title, placeholder:"タイトルを入力してください" %><br>

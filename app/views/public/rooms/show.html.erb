@@ -1,9 +1,28 @@
 <div class="room-show">
-  <h3>お悩み詳細</h3>
 
+  <div class="show-content">
+    <div class="category-list"><%= @room.category.name %></div>
+    <h5 class="room-title"><small>タイトル：</small><%= @room.title %></h5>
+    <p><%= @room.body %></p>
+    <div class="room-time">
+      投稿者：<%= @room.end_user.name %>
+      <% if @room.end_user_id == current_end_user.id %>
+        <%= link_to edit_room_path do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <% unless @room.best_answer %>
+          <%= link_to room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      <% end %><br>
+      <span><%= @room.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+    </div>
+  </div>
+  
   <div class="comment-menu">
     <div class="comment-trigger">
-      <p>コメント</p>
+      <i class="fas fa-pen-nib"></i>メッセージを送る
     </div>
     <div class="message-content">
       <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post, local: false do |f| %>
@@ -11,23 +30,6 @@
         <%= f.submit "コメント" %>
       <% end %>
     </div>
-  </div>
-
-  <div class="show-content">
-    <span class="category-list"><%= @room.category.name %></span>
-    <h5 class="room-title"><small>タイトル：</small><%= @room.title %></h5>
-    <p><%= @room.body %></p>
-    投稿者：<%= @room.end_user.name %>
-    <% if @room.end_user_id == current_end_user.id %>
-      <%= link_to edit_room_path do %>
-        <i class="fa-solid fa-pen-to-square"></i>
-      <% end %>
-      <% unless @room.best_answer %>
-        <%= link_to room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
-      <% end %>
-    <% end %>
   </div>
 
   <div class="chat_btn">

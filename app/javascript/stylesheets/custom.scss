@@ -42,9 +42,7 @@ header {
 .header-logo {
   text-align: center;
   line-height: 80px;
-}
-
-.header-logo img {
+  display: inline-block;
   width: 40%;
 }
 
@@ -221,7 +219,6 @@ header {
 .create {
   margin-bottom: 40px;
   text-align: right;
-  line-height: 80px;
 }
 
 .create a {
@@ -263,22 +260,22 @@ header {
   color: grey;
 }
 
-.room-create {
+.form-create {
   width: 100%;
 }
 
-.room-create-content {
+.form-create-content {
   width: 500px;
   margin: 0 auto;
   text-align: center;
   margin-top: 50px;
 }
 
-.room-create-content h2 {
+.form-create-content h2 {
   margin-bottom: 20px;
 }
 
-.room-create-content input, textarea, select {
+.form-create-content input, textarea, select {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -292,12 +289,18 @@ header {
 
 // ------------------ //
 
+// -------end_user------- //
+
+// ---------------------- //
+
 
 .category-list {
   background-color: grey;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
+  font-size: 12px;
   color: #fff;
   border-radius: 10px;
+  display: inline-block;
 }
 
 // -------room_show------- //
@@ -309,10 +312,18 @@ header {
 
 .show-content {
   margin: 20px 0;
+  box-shadow: 0 0 6px gray;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .room-title {
   margin-top: 15px;
+}
+
+.room-time {
+  text-align: right;
+  font-size: 12px;
 }
 
 .comment-content {
@@ -328,6 +339,10 @@ header {
 
 .comment-user {
   width: 15%;
+}
+
+.comment-menu {
+  margin: 15px 0;
 }
 
 .comment {
@@ -374,6 +389,16 @@ header {
 
 .comment-side form {
   display: inline-block;
+}
+
+.comment-trigger {
+  width: 15%;
+  padding: 5px;
+  background-color: #87cefa;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .comment-trigger:hover {

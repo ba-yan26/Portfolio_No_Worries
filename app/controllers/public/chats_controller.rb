@@ -3,12 +3,11 @@ class Public::ChatsController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id])
-    @chat = current_end_user.chats.new(chat_params)
-    @chat.room_id = @room.id
-    @chat_room = @chat.room
-    if @chat.save
-      @chat_room.create_notification_chat!(current_end_user, @chat.id)
-    end
+    chat = current_end_user.chats.new(chat_params)
+    chat.room_id = @room.id
+    chat.save
+    @room.create_notification_by(current_end_user)
+    # roomモデル内のメソッドを呼び出す
   end
 
   def destroy

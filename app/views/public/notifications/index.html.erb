@@ -1,5 +1,7 @@
 <% if @notifications.exists? %>
-  <%= render @notifications %>
+<!-- もし通知があれば以下を実行する -->
+  <% render @notifications %>
+  <!-- 部分テンプレートで呼び出し -->
 <% else %>
   <p>通知はありません</p>
 <% end %>

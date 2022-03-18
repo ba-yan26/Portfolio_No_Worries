@@ -26,11 +26,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get 'notices/category' => 'notices#category', as: 'notice_categories'
     resources :end_users, only: [:index, :show, :edit, :update]
     resources :categories, only: [:index, :create, :edit, :update]
     resources :rooms, only: [:index, :show, :destroy]
     resources :chats, only: [:destroy]
-    resources :notices, only: [:index, :show]
+    resources :notices, only: [:index, :show, :create, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
