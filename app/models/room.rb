@@ -18,11 +18,11 @@ class Room < ApplicationRecord
       action: 'chat'
     )
     
-    # if notification.visiter_id == notification.visited_id
-    # # 通知を作成した人のidと通知を受け取る人のidが同じなら
-    #   notification.checked = true
-    #   # true(既読)にする
-    # end
+    if notification.visiter_id == notification.visited_id
+    # 通知を作成した人のidと通知を受け取る人のidが同じなら
+      notification.checked = true
+      # true(既読)にする
+    end
     
     notification.save
     # 通知をセーブして

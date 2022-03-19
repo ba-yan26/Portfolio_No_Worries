@@ -1,7 +1,23 @@
-<% if @notifications.exists? %>
-<!-- もし通知があれば以下を実行する -->
-  <% render @notifications %>
-  <!-- 部分テンプレートで呼び出し -->
-<% else %>
-  <p>通知はありません</p>
-<% end %>
+<div class="notification">
+  <h4>通知</h4>
+    <div class="notification-content">
+      <% if @notifications.exists? %>
+        <% @notifications.each do |notification| %>
+          <div class="notification-list">
+          <!-- もし通知があれば以下を実行する -->
+            <%= link_to end_user_path(notification.visiter) do %>
+              <strong><%= notification.visiter.name %></strong>
+              <!-- 通知を送っているユーザー名 -->
+            <% end %>さんが
+            <%= link_to room_path(notification.room_id) do %>
+              <strong>あなたの投稿</strong>
+            <% end %>にコメントしました。
+            <%= "(#{time_ago_in_words(notification.created_at)}前)" %>
+            <!-- 部分テンプレートで呼び出し -->
+          </div>
+        <% end %>
+      <% else %>
+        <p>通知はありません</p>
+      <% end %>
+    </div>
+</div>
