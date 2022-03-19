@@ -468,15 +468,23 @@ header {
 .notification {
   width: 70%;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .notification h4 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .notification-content {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
+}
+
+.notification-list {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #000;
 }
 // -------------------------- //
 

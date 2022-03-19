@@ -6,7 +6,7 @@ class Public::ChatsController < ApplicationController
     chat = current_end_user.chats.new(chat_params)
     chat.room_id = @room.id
     chat.save
-    @room.create_notification_by(current_end_user)
+    @room.create_notification_by(current_end_user, chat.id)
     # roomモデル内のメソッドを呼び出す
   end
 

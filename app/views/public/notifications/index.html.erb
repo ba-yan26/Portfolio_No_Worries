@@ -1,5 +1,6 @@
 <div class="notification">
   <h4>通知</h4>
+    <%= link_to "全削除", notification_path(@notifications), method: :delete %>
     <div class="notification-content">
       <% if @notifications.exists? %>
         <% @notifications.each do |notification| %>
@@ -10,10 +11,14 @@
               <!-- 通知を送っているユーザー名 -->
             <% end %>さんが
             <%= link_to room_path(notification.room_id) do %>
-              <strong>あなたの投稿</strong>
+              <strong><%= notification.room.title %></strong>
             <% end %>にコメントしました。
             <%= "(#{time_ago_in_words(notification.created_at)}前)" %>
-            <!-- 部分テンプレートで呼び出し -->
+            <div>
+              <% if notification.chat.present? %>
+                <%= notification.chat.message %>
+              <% end %>
+            </div>
           </div>
         <% end %>
       <% else %>
