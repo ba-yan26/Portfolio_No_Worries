@@ -59,6 +59,7 @@ gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'pry-byebug', group: :development
+gem 'omniauth-google-oauth2'
 
 group :production do
   gem 'mysql2'
