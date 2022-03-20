@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :end_users, controllers: {
     registrations: "public/registrations",
-    sessions: 'public/sessions'
+    sessions: 'public/sessions',
   }
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
     resources :end_users, only: [:show, :edit, :update] do
       resource :notices, only: [:new, :create]
+      resource :relationships, only: [:create, :destroy]
+      get :followings, on: :member
+      get :followers, on: :member
     end
     resources :rooms, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
       resources :chats, only: [:create, :destroy]

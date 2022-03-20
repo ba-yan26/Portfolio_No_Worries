@@ -5,7 +5,10 @@
     <h5 class="room-title"><small>タイトル：</small><%= @room.title %></h5>
     <p><%= @room.body %></p>
     <div class="room-time">
-      投稿者：<%= @room.end_user.name %>
+      投稿者：
+      <%= link_to end_user_path(@room.end_user) do %>
+        <%= @room.end_user.name %>
+      <% end %>
       <% if @room.end_user_id == current_end_user.id %>
         <%= link_to edit_room_path do %>
           <i class="fas fa-edit"></i>
@@ -19,7 +22,7 @@
       <span><%= @room.created_at.strftime("%Y/%m/%d %H:%M") %></span>
     </div>
   </div>
-  
+
   <div class="comment-menu">
     <div class="comment-trigger">
       <i class="fas fa-pen-nib"></i>メッセージを送る
