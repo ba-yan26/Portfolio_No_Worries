@@ -20,6 +20,16 @@ class Public::EndUsersController < ApplicationController
     end
   end
 
+  def followings
+    end_user = EndUser.find(params[:id])
+    @end_users = end_user.followings
+  end
+
+  def followers
+    end_user = EndUser.find(params[:id])
+    @end_users = end_user.followers
+  end
+
   def ensure_correct_end_user
     @end_user = EndUser.find(params[:id])
     unless @end_user == current_end_user
@@ -30,7 +40,7 @@ class Public::EndUsersController < ApplicationController
   private
 
   def end_user_params
-    params.require(:end_user).permit(:name, :email)
+    params.require(:end_user).permit(:name, :email, :body, :profile_image)
   end
 
 end

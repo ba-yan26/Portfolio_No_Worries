@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'notices/category' => 'notices#category', as: 'notice_categories'
-    resources :end_users, only: [:index, :show, :edit, :update]
+    resources :end_users, only: [:index, :edit, :update]
     resources :categories, only: [:index, :create, :edit, :update]
     resources :rooms, only: [:index, :show, :destroy]
     resources :chats, only: [:destroy]

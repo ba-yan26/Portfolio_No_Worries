@@ -2,40 +2,43 @@
 
 <div class="container">
   <div class="side-content">
-    <div>
-      <%= image_tag @end_user.get_profile_image, size:"40x40" %>
+    <div class="side-profile-list">
+      <%= image_tag @end_user.get_profile_image, size:"60x60" %><br>
       <%= @end_user.name %>
     </div>
+    <div class="side-profile-list">
+      <%= @end_user.body %>
+    </div>
     <% if @end_user == current_end_user %>
-      <div>
-        <%= @end_user.email %>
-      </div>
-      <div>
+      <div class="side-profile-list">
         <%= link_to "編集する", edit_end_user_path(@end_user) %>
       </div>
-      <div>
+      <div class="side-profile-list">
         <%= link_to "ブックマーク", bookmarks_path %>
       </div>
-      <div>
-      <div class="notice-item">
+      <div class="side-profile-list">
         <% if unchecked_notifications.any? %>
-           <%= link_to "お知らせ",notifications_path, class: "btn btn-light" %>
+           <%= link_to "通知あり",notifications_path %>
         <% else %>
-           <%= link_to "お知らせ",notifications_path, class: "btn btn-dark" %>
+           <%= link_to "通知なし",notifications_path %>
         <% end %>
       </div>
-
-      </div>
     <% else %>
-      <% if @end_user.is_followed_by?(current_end_user) %>
-        <%= link_to "フォロー解除", end_user_relationships_path(@end_user), method: :delete %>
-      <% else %>
-        <%= link_to "フォロー", end_user_relationships_path(@end_user), method: :post %>
-      <% end %>
-      <%= link_to "通報する", new_end_user_notices_path(@end_user) %>
+      <div class="follow_btn_<%= @end_user.id %> side-profile-list">
+        <%= render "public/relationships/follow", end_user: @end_user %>
+      </div>
+      <div class="side-profile-list">
+        <%= link_to "通報する", new_end_user_notices_path(@end_user) %>
+      </div>
     <% end %>
-    <div>
-      フォロー数：<%= @end_user.followings.count %> | フォロワー数：<%= @end_user.followers.count %>
+    <div class="side-profile-list">
+      <%= link_to followings_end_user_path do %>
+        <%= @end_user.followings.count %>
+      <% end %> フォロー
+        
+      <%= link_to followers_end_user_path do %>
+        <%= @end_user.followers.count %>
+      <% end %> フォロワー
     </div>
   </div>
 

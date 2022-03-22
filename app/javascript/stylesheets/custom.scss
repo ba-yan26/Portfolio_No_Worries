@@ -43,7 +43,7 @@ header {
   text-align: center;
   line-height: 80px;
   display: inline-block;
-  width: 140px;
+  width: 120px;
 }
 
 .header-list {
@@ -193,7 +193,7 @@ header {
 }
 
 .side-content {
-  width: 30%;
+  width: 40%;
 }
 
 .side-content ul li {
@@ -210,6 +210,15 @@ header {
 .main-title {
   text-align: center;
   margin: 20px 0 40px 0;
+}
+
+.side-profile-list {
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+.side-profile-list a {
+
 }
 
 // ------------------ //
@@ -289,11 +298,6 @@ header {
 
 // ------------------ //
 
-// -------end_user------- //
-
-// ---------------------- //
-
-
 .category-list {
   background-color: grey;
   padding: 5px 10px;
@@ -332,6 +336,12 @@ header {
   margin-bottom: 20px;
 }
 
+.my-comment-content {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
 .chat-time {
   text-align: right;
   font-size: 10px;
@@ -365,6 +375,28 @@ header {
   border-right: 18px solid #edf1ee;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
+}
+
+.my-comment {
+  width: 70%;
+  display: inline-block;
+  position: relative;
+  margin: 0 40px 0 0;
+  padding: 10px;
+  border-radius: 12px;
+  background: #87cefa;
+}
+
+.my-comment:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #87cefa;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
 }
 
 .comment-side {
@@ -406,12 +438,10 @@ header {
 }
 
 .message-content {
-  width: 30%;
+  width: 70%;
   margin: 0 auto;
   display: none;
-  position: fixed;
-  left: 35%;
-  z-index: 10;
+  position: relative;
 }
 
 .message-content textarea {
@@ -488,4 +518,21 @@ header {
 }
 // -------------------------- //
 
+// --------follow--------  //
+.follow-content {
+  width: 70%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+}
 
+.follow-side {
+  width: 30%;
+}
+
+.follow-body {
+  width: 60%;
+}

@@ -1,0 +1,23 @@
+<div class="follow-content">
+  <% @end_users.each do |end_user| %>
+    <div class="follow-side">
+      <div class="follow-profile">
+        <%= link_to end_user_path(end_user) do %>
+          <%= image_tag end_user.get_profile_image, size:"40x40" %>
+          <%= end_user.name %>
+        <% end %>
+      </div>
+      <div class="follow-profile">
+        <%= end_user.followings.count %> フォロー
+        <%= end_user.followers.count %> フォロワー
+      </div>
+    </div>
+    <div class="follow-body">
+      <% if end_user.body.present? %>
+        <%= end_user.body %>
+      <% else %>
+        自己紹介文はありません
+      <% end %>
+    </div>
+  <% end %>
+</div>

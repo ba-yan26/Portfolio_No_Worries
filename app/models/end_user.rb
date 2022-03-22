@@ -21,8 +21,9 @@ class EndUser < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, presence: :true
+  validates :name, presence: :true, uniqueness: :true
   validates :email, presence: :true
+  validates :body, presence: :true, length: {maximum: 140}
   validates_acceptance_of :agreement, allow_nil: false, on: :create
 
   def get_profile_image

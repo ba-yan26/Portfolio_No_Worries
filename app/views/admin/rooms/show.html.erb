@@ -1,35 +1,54 @@
 <div class="room-show">
-  <h3>お悩み詳細</h3>
+
   <div class="show-content">
-    <span class="category-list"><%= @room.category.name %></span>
-    <h5><small>タイトル：</small><%= @room.title %></h5>
+    <div class="category-list"><%= @room.category.name %></div>
+    <h5 class="room-title"><small>タイトル：</small><%= @room.title %></h5>
     <p><%= @room.body %></p>
-    投稿者：<%= @room.end_user.name %>
-      <%= link_to "ルーム削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+    <div class="room-time">
+      投稿者：
+      <%= link_to end_user_path(@room.end_user) do %>
+        <%= @room.end_user.name %>
+      <% end %>
+      <span><%= @room.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+    </div>
   </div>
 
-
-
-  <% @room.chats.each do |chat| %>
-    <div class="comment-content">
-      <div class="comment-user">
-        <%= link_to end_user_path(chat.end_user) do %>
-          <%= image_tag chat.end_user.get_profile_image, size: "40x40" %><br>
-          <%= chat.end_user.name %>
-        <% end %>
-      </div>
-      <div class="comment <%= "best-answer" if @room.best_answer == chat.id %>">
-        <%= chat.message %>
-        <% if chat.end_user == current_end_user %>
-          <%= link_to "削除", room_chat_path(chat.room,chat), method: :delete %>
-        <% end %>
-        <% if @room.end_user == current_end_user %>
-          <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
-            <%= f.hidden_field :best_answer, value: chat.id %>
-            <%= f.submit "ベストアンサー", disabled: @room.best_answer.present? %>
+  <div class="chat_btn">
+    <% @room.chats.reverse.each do |chat| %>
+      <div class="comment-content">
+        <div class="comment-user">
+          <%= link_to edit_admin_end_user_path(chat.end_user) do %>
+            <%= image_tag chat.end_user.get_profile_image, size: "40x40" %><br>
+            <%= chat.end_user.name %>
           <% end %>
-        <% end %>
+        </div>
+        <div class="comment">
+          <%= safe_join(chat.message.split("\n"),tag(:br)) %>
+          <div class="chat-time">
+            <span><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+          </div>
+        </div>
+        <div class="comment-side">
+          <div class="comment-side-flex">
+            <% if chat.end_user == current_end_user %>
+              <% unless @room.best_answer %>
+                <%= link_to room_chat_path(chat.room,chat), method: :delete, remote: true do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% if @room.end_user == current_end_user %>
+              <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
+                <%= f.hidden_field :best_answer, value: chat.id %>
+                <%= f.button :type => "submit", disabled: @room.best_answer.present? do %>
+                  <i class="fas fa-crown <%= "best-answer" if @room.best_answer == chat.id %>"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+
+  </div>
 </div>

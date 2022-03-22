@@ -1,4 +1,5 @@
     <% @room.chats.reverse.each do |chat| %>
+    <% if chat.end_user != current_end_user %>
       <div class="comment-content">
         <div class="comment-user">
           <%= link_to end_user_path(chat.end_user) do %>
@@ -32,4 +33,31 @@
           </div>
         </div>
       </div>
+    <% else %>
+      <div class="my-comment-content">
+        <div class="my-comment">
+          <%= safe_join(chat.message.split("\n"),tag(:br)) %>
+          <div class="chat-time">
+            <span><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+            <% if chat.end_user == current_end_user %>
+              <% unless @room.best_answer %>
+                <%= link_to room_chat_path(chat.room,chat), method: :delete, remote: true do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% if @room.end_user == current_end_user %>
+              <% if chat.end_user != current_end_user %>
+                <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
+                  <%= f.hidden_field :best_answer, value: chat.id %>
+                  <%= f.button :type => "submit", disabled: @room.best_answer.present? do %>
+                    <i class="fas fa-crown <%= "best-answer" if @room.best_answer == chat.id %>"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <% end %>
