@@ -23,7 +23,7 @@ class EndUser < ApplicationRecord
 
   validates :name, presence: :true, uniqueness: :true
   validates :email, presence: :true
-  validates :body, presence: :true, length: {maximum: 140}
+  validates :body, length: {maximum: 140}
   validates_acceptance_of :agreement, allow_nil: false, on: :create
 
   def get_profile_image

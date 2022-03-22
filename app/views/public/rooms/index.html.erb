@@ -1,4 +1,4 @@
-<h1 class="main-title">ルーム一覧</h1>
+<h4 class="main-title">ルーム一覧</h4>
 
 <div class="container">
   <div class="side-content">
@@ -10,5 +10,6 @@
 
   <div class="main-content">
     <%= render 'public/rooms/index', rooms: @rooms %>
+    <%= paginate @rooms %>
   </div>
 </div>

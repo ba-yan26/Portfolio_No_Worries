@@ -1,6 +1,6 @@
 <div class="form-create">
   <div class="form-create-content">
-    <h2>ルーム作成</h2>
+    <h4>ルーム作成</h4>
     <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
       <%= f.text_field :title, placeholder:"タイトルを入力してください" %><br>
       <%= f.text_area :body, placeholder:"色んな人からアドバイスがもらいやすいように、内容を詳細に入力してください。" %><br>

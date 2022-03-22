@@ -7,6 +7,12 @@
 body {
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  background-color: #98C3EC;
+  color: #14171a;
+  font-family: 'メイリオ', Meiryo,'ヒラギノ角ゴシック','Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Arial',sans-serif;
 }
 
 button {
@@ -26,29 +32,38 @@ a {
   color: grey;
 }
 
+a:hover {
+  text-decoration: none;
+  color: none;
+}
+
 .container-all {
   width: 1024px;
   margin: 0 auto;
+  flex: 1;
+  background-color: #fff;
 }
 
 // -------header------- //
 
 header {
   height: 80px;
-  width: 1024px;
+  width: 100%;
   margin: 0 auto;
+  background-color: #fff;
+  border-bottom: 2px solid grey;
 }
 
 .header-logo {
   text-align: center;
   line-height: 80px;
   display: inline-block;
-  width: 120px;
+  width: 115px;
 }
 
 .header-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .header-menu ul li {
@@ -64,8 +79,8 @@ header {
 
 .header-menu {
   color: #fff;
-  width: 15%;
-  z-index: 10;
+  width: 10%;
+  z-index: 9;
 }
 
 .header-icon {
@@ -87,22 +102,64 @@ header {
 
 // ------------------- //
 
+// -------footer------- //
+footer {
+  height: 80px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-top: 2px solid grey;
+}
+
+footer p {
+  line-height: 80px;
+  text-align: center;
+}
+// -------------------- //
+
 // -------top------- //
 
 .top-container {
+  width: 100%;
+  margin: 0 auto;
   padding-top: 50px;
+  // background-image: url("../../assets/images/top-image.jpg");
+  // background-color: rgba(255,255,255,0.6);
+  // background-blend-mode: lighten;
+  // background-size: cover;
+  // background-position: top;
+  // height: 500px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .top-topic {
-  width: 70%;
+  text-align: center;
+}
+
+.top-topic p {
+  font-size: 24px;
 }
 
 .top-login {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.top-login a {
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  margin: 0 30px;
+  transition: 0.3s;
+}
+
+.top-login a:hover {
+  background-color: grey;
+  color: #fff;
+  transition: 0.3s;
 }
 
 // ----------------- //
@@ -188,12 +245,13 @@ header {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-item: center;
 }
 
 .side-content {
-  width: 40%;
+  width: 30%;
+  margin: 0 auto;
 }
 
 .side-content ul li {
@@ -204,7 +262,9 @@ header {
 }
 
 .main-content {
-  width: 60%;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .main-title {
@@ -214,12 +274,98 @@ header {
 
 .side-profile-list {
   margin-bottom: 10px;
-  width: 50%;
 }
 
-.side-profile-list a {
-
+.profile-name img {
+  border-radius: 50%;
+  margin-bottom: 5px;
 }
+
+.profile-body {
+  border-bottom: 1px solid grey;
+  padding-bottom: 15px;
+  width: 80%;
+}
+
+.profile-edit a {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 13px;
+  transition: 0.3s;
+}
+
+.profile-edit a:hover {
+  background-color: grey;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.profile-bookmark a {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 13px;
+  transition: 0.3s;
+}
+
+.profile-bookmark a:hover {
+  border: 1px solid #f0e68c;
+  background-color: #f0e68c;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.profile-notification a {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 13px;
+  transition: 0.3s;
+}
+
+.profile-notification a:hover {
+  border: 1px solid #ffc0cb;
+  background-color: #ffc0cb;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.profile-follow-btn a {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 13px;
+}
+
+.profile-notice a {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 13px;
+}
+
+.followings {
+  background-color: #000;
+  color: #fff;
+}
+
+.followings:hover {
+  color: #fff;
+}
+
+
+
 
 // ------------------ //
 
@@ -231,7 +377,7 @@ header {
 }
 
 .create a {
-  background-color: #87cefa;
+  background-color: #A2DD9F;
   padding: 10px 15px 10px 15px;
   color: #fff;
   font-weight: bold;
@@ -284,7 +430,7 @@ header {
   margin-bottom: 20px;
 }
 
-.form-create-content input, textarea, select {
+.form-create-content input, textarea, select, input[type="submit"] {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -292,8 +438,26 @@ header {
   margin-bottom: 20px;
 }
 
-.room-create-content textarea {
-  height: 400px;
+.screenshot {
+  padding: 10px;
+  border: solid 1px grey;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: left;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.form-create-content textarea {
+  height: 300px;
+}
+
+.radio {
+  display: flex;
+  justify-content: space-around;
 }
 
 // ------------------ //
@@ -351,6 +515,10 @@ header {
   width: 15%;
 }
 
+.comment-user a img {
+  border-radius: 50%;
+}
+
 .comment-menu {
   margin: 15px 0;
 }
@@ -384,7 +552,7 @@ header {
   margin: 0 40px 0 0;
   padding: 10px;
   border-radius: 12px;
-  background: #87cefa;
+  background: #d6eaff;
 }
 
 .my-comment:after {
@@ -394,7 +562,7 @@ header {
   top: 3px;
   right: -19px;
   border: 8px solid transparent;
-  border-left: 18px solid #87cefa;
+  border-left: 18px solid #d6eaff;
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
@@ -426,7 +594,7 @@ header {
 .comment-trigger {
   width: 15%;
   padding: 5px;
-  background-color: #87cefa;
+  background-color: #A2DD9F;
   color: #fff;
   border-radius: 10px;
   font-size: 12px;
@@ -506,6 +674,13 @@ header {
   margin-bottom: 20px;
 }
 
+.notification-delete {
+  text-align: right;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
 .notification-content {
   width: 80%;
   margin: 0 auto;
@@ -516,17 +691,40 @@ header {
   margin-bottom: 20px;
   border-bottom: solid 1px #000;
 }
+
+.notification-message {
+  margin-top: 10px;
+  text-align: center;
+  color: #c0c0c0;
+}
 // -------------------------- //
 
 // --------follow--------  //
+
 .follow-content {
+  margin: 50px 0;
+}
+
+.follow-content h3 {
+  text-align: center;
+}
+
+.follow-list {
   width: 70%;
-  margin: 50px auto;
+  margin: 20px auto;
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid grey;
   margin-bottom: 20px;
+}
+
+.follow-profile {
+  margin-bottom: 10px;
+}
+
+.follow-profile a img {
+  border-radius: 50%;
 }
 
 .follow-side {
@@ -535,4 +733,22 @@ header {
 
 .follow-body {
   width: 60%;
+}
+
+
+
+.pagination li a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination .active a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
 }

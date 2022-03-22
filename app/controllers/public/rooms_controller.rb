@@ -9,13 +9,16 @@ class Public::RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.end_user_id = current_end_user.id
-    @room.save
-    redirect_to room_path(@room)
+    if @room.save
+      redirect_to room_path(@room)
+    else
+      render "new"
+    end
   end
 
   def index
     @q = Room.ransack(params[:q])
-    @rooms = @q.result(distinct: true).order(created_at: :desc)
+    @rooms = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
     @categories = Category.all
   end
 

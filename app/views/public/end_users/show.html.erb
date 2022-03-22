@@ -1,22 +1,34 @@
-<h2 class="main-title"><%= @end_user.name %>のページ</h2>
+<h4 class="main-title"><%= @end_user.name %>のページ</h4>
 
 <div class="container">
   <div class="side-content">
-    <div class="side-profile-list">
+    <div class="side-profile-list profile-name">
       <%= image_tag @end_user.get_profile_image, size:"60x60" %><br>
       <%= @end_user.name %>
     </div>
-    <div class="side-profile-list">
+    
+    <div class="side-profile-list profile-follow">
+      <%= link_to followings_end_user_path do %>
+        <%= @end_user.followings.count %> follow
+      <% end %>
+        
+      <%= link_to followers_end_user_path do %>
+        <%= @end_user.followers.count %> follwer
+      <% end %>
+    </div>
+    
+    <div class="side-profile-list profile-body">
       <%= @end_user.body %>
     </div>
+    
     <% if @end_user == current_end_user %>
-      <div class="side-profile-list">
-        <%= link_to "編集する", edit_end_user_path(@end_user) %>
+      <div class="side-profile-list profile-edit">
+        <%= link_to "プロフィール編集", edit_end_user_path(@end_user) %>
       </div>
-      <div class="side-profile-list">
+      <div class="side-profile-list profile-bookmark">
         <%= link_to "ブックマーク", bookmarks_path %>
       </div>
-      <div class="side-profile-list">
+      <div class="side-profile-list profile-notification">
         <% if unchecked_notifications.any? %>
            <%= link_to "通知あり",notifications_path %>
         <% else %>
@@ -24,22 +36,13 @@
         <% end %>
       </div>
     <% else %>
-      <div class="follow_btn_<%= @end_user.id %> side-profile-list">
+      <div class="follow_btn_<%= @end_user.id %> side-profile-list profile-follow-btn">
         <%= render "public/relationships/follow", end_user: @end_user %>
       </div>
-      <div class="side-profile-list">
+      <div class="side-profile-list profile-notice">
         <%= link_to "通報する", new_end_user_notices_path(@end_user) %>
       </div>
     <% end %>
-    <div class="side-profile-list">
-      <%= link_to followings_end_user_path do %>
-        <%= @end_user.followings.count %>
-      <% end %> フォロー
-        
-      <%= link_to followers_end_user_path do %>
-        <%= @end_user.followers.count %>
-      <% end %> フォロワー
-    </div>
   </div>
 
   <div class="main-content">

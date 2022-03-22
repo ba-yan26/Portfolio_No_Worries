@@ -6,13 +6,15 @@
 
     <%= form_with model: @notice, url: end_user_notices_path, method: :post do |f| %>
       <div>
-        <%= f.select :title, options_for_select([["誹謗中傷", 1], ["攻撃的な発言", 2], ["性的表現", 3]] ), :include_blank => "カテゴリ選択" %>
+        <%= f.text_field :title, placeholder:"タイトルを入力してください" %>
       </div>
       <div>
         <%= f.text_area :body, placeholder:"詳細に入力してください" %>
       </div>
       <div>
-        <%= f.file_field :notice_image, accept: 'image/*' %>
+        <label class="screenshot" for="form-image">スクリーンショット</label>
+        <%= f.file_field :notice_image, accept: 'image/*', id:"form-image" %>
+        <span class="select-image">選択されていません</span>
       </div>
       <div>
         <%= f.submit "送信" %>
