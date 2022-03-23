@@ -8,7 +8,8 @@
  * version: 3.1.1
  *
  */
-
+/*global $*/
+$(document).on('turbolinks:load',
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
@@ -774,4 +775,4 @@
 
     return Raty;
   })();
-}));
+})));
