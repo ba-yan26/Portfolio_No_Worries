@@ -13,6 +13,7 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "script.js"
+import "jquery.raty.js"
 
 const jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;

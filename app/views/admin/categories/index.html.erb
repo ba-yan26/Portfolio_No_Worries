@@ -1,24 +1,27 @@
-<div class="container mt-5">
-
-  <div class="side-content">
-    <h5>カテゴリ一覧</h5>
-    <table class="table table-borderless">
-      <tbody>
-      <% @categories.each do |category| %>
-        <tr>
-          <th><%= category.name %></th>
-          <td><%= link_to "編集する", edit_admin_category_path(category) %></td>
-        </tr>
+<div class="admin-container">
+  <div class="container mt-5">
+  
+    <div class="side-content">
+      <h5>カテゴリ一覧</h5>
+      <table class="table table-borderless">
+        <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <th><%= category.name %></th>
+            <td><%= link_to "編集する", edit_admin_category_path(category) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="main-content">
+      <h5>カテゴリ新規作成</h5>
+      <%= form_with model: @category, url: admin_categories_path, method: :post do |f| %>
+        <%= f.text_field :name, placeholder:"カテゴリ名を入力" %>
+        <%= f.submit "作成" %>
       <% end %>
-      </tbody>
-    </table>
+    </div>
   </div>
-
-  <div class="main-content">
-    <h5>カテゴリ新規作成</h5>
-    <%= form_with model: @category, url: admin_categories_path, method: :post do |f| %>
-      <%= f.text_field :name, placeholder:"カテゴリ名を入力" %>
-      <%= f.submit "作成" %>
-    <% end %>
-  </div>
+  
 </div>

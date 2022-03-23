@@ -1,6 +1,26 @@
-<h1>通報詳細</h1>
+<div class="admin-container">
+  <h4 class="main-title">通報詳細</h4>
 
-<%= @notice.title %>
-<%= @notice.body %>
-<%= image_tag @notice.get_notice_image %>
-<%= link_to @notice.end_user.name, edit_admin_end_user_path(@notice.end_user) %>
+  <table class="table">
+    <tr>
+      <th>タイトル</th>
+      <td><%= @notice.title %></td>
+    </tr>
+    <tr>
+      <th>本文</th>
+      <td><%= @notice.body %></td>
+    </tr>
+    <tr>
+      <th>スクリーンショット</th>
+      <td>
+        <%= link_to @notice.get_notice_image, "data-lightbox": @notice.get_notice_image do %>
+          <%= image_tag @notice.get_notice_image, size:"100x100" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>名前</th>
+      <td><%= link_to @notice.end_user.name, edit_admin_end_user_path(@notice.end_user) %></td>
+    </tr>
+  </table>
+</div>

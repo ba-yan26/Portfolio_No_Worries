@@ -1,26 +1,28 @@
-<h1 class="main-title">ルーム一覧</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>ルーム名</th>
-      <th>投稿者</th>
-      <th>解決ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @rooms.each do |room| %>
-    <tr>
-      <td><%= link_to room.title, admin_room_path(room) %></td>
-      <td><%= room.end_user.name %></td>
-      <td>
-        <% if room.resolution_status == false %>
-          未解決
-        <% else %>
-          解決済
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="admin-container">
+  <h4 class="main-title">ルーム一覧</h4>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ルーム名</th>
+        <th>投稿者</th>
+        <th>解決ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+      <tr>
+        <td><%= link_to room.title, admin_room_path(room) %></td>
+        <td><%= room.end_user.name %></td>
+        <td>
+          <% if room.resolution_status == false %>
+            未解決
+          <% else %>
+            解決済
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
