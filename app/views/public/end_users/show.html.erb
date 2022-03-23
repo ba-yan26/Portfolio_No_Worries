@@ -17,11 +17,16 @@
       <% end %>
     </div>
     
+    <div class="side-profile-list">
+      <%= link_to reviews_path(@end_user) do %>
+        評価（<%= @end_user.reviews.count %>件）
+      <% end %>
+    </div>
+    
     <div class="side-profile-list profile-body">
       <%= @end_user.body %>
     </div>
     
-    <%= link_to "評価", reviews_path(@end_user) %>
     
     <% if @end_user == current_end_user %>
       <div class="side-profile-list profile-edit">
@@ -63,5 +68,6 @@
           </div>
       </div>
     <% end %>
+    <%= paginate @rooms %>
   </div>
 </div>

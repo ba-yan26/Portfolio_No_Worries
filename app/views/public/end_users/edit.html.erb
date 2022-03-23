@@ -1,6 +1,6 @@
 <div class="form-create">
   <div class="form-create-content">
-    <h2>ユーザー編集</h2>
+    <h4>ユーザー編集</h4>
     <%= form_with model: @end_user, url: end_user_path(@end_user), method: :patch do |f| %>
       <%= f.text_field :name %>
       <%= f.text_field :email %>

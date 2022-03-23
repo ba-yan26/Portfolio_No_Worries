@@ -267,6 +267,10 @@ footer p {
   margin-bottom: 50px;
 }
 
+.main-content h5 {
+  margin-bottom: 20px;
+}
+
 .main-title {
   text-align: center;
   margin: 20px 0 40px 0;
@@ -371,6 +375,10 @@ footer p {
 
 // -------room------- //
 
+.responsive-search {
+  display: none;
+}
+
 .create {
   margin-bottom: 40px;
   text-align: right;
@@ -474,7 +482,7 @@ input[type="file"] {
 // -------room_show------- //
 
 .room-show {
-  width: 800px;
+  width: 80%;
   margin: 30px auto;
 }
 
@@ -614,8 +622,7 @@ input[type="file"] {
 
 .message-content textarea {
   border-radius: 15px;
-  border: solid 0px;
-  box-shadow: 0 0 6px gray;
+  border: solid 1px grey;
   padding: 10px;
 }
 
@@ -742,3 +749,227 @@ input[type="file"] {
   width: 70%;
   margin: 0 auto;
 }
+
+// -------unsbscribe------- //
+
+.unsubscribe-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+// ------------------------ //
+
+
+
+
+// ------responsive------- //
+
+@media screen and (max-width: 520px) {
+
+  body {
+    font-size: 13px;
+  }
+
+  .container-all {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  header {
+    height: 60px;
+  }
+
+  .header-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-logo-menu {
+    width: 25%;
+    margin-left: 20px;
+  }
+
+  .header-menu {
+    width: 25%;
+    z-index: 9;
+  }
+
+  .header-logo {
+    line-height: 60px;
+    width: 80px;
+  }
+
+  .header-icon {
+    line-height: 60px;
+  }
+
+  footer {
+    height: 60px;
+  }
+
+  footer p {
+    line-height: 60px;
+  }
+
+  .top-container {
+    padding-top: 40px;
+  }
+
+  .top-topic {
+    text-align: center;
+  }
+
+  .top-topic p {
+    font-size: 13px;
+  }
+
+  .top-login {
+    margin-top: 30px;
+  }
+
+  .top-login a {
+    padding: 5px 10px;
+    font-size: 13px;
+    border: solid 1px grey;
+    display: block;
+    width: 50%;
+    margin: 20px auto;
+  }
+
+  .text-area {
+    height: 30px;
+    padding: 0 10px;
+    width: 150px;
+  }
+
+  .button {
+    height: 30px;
+    left: 128px;
+    font-size: 15px;
+  }
+
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .create {
+    text-align: right;
+  }
+
+  .main-content {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+
+  .pagination {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .side-content {
+    width: 100%;
+  }
+
+  .side-content {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .side-content ul li {
+    display: inline;
+    border: none;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .responsive-search {
+    display: block;
+  }
+
+  .profile-body {
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+  .main-content h5 {
+    text-align: center;
+  }
+
+  .profile-edit a {
+    width: 40%;
+    padding: 5px 10px;
+  }
+
+  .profile-bookmark a {
+    width: 40%;
+    padding: 5px 10px;
+  }
+
+  .profile-notification a {
+    width: 40%;
+    padding: 5px 10px;
+  }
+
+  .profile-notice a {
+    width: 40%;
+    padding: 5px 10px;
+  }
+
+  .profile-follow-btn a {
+    width: 40%;
+    padding: 5px 10px;
+  }
+
+  .form-create-content {
+    width: 80%;
+    margin: 30px auto;
+  }
+
+  .room-show {
+    width: 95%;
+  }
+
+  .comment-user a {
+    font-size: 0.7rem;
+  }
+
+  .comment-side a {
+    font-size: 0.7rem;
+  }
+
+  .comment-side svg {
+    font-size: 0.7rem;
+  }
+
+  .chat-time span {
+    font-size: 0.6rem;
+  }
+
+  .room-time {
+    font-size: 0.6rem;
+  }
+  
+  .comment-trigger {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  
+  .message-content textarea {
+    margin: 0;
+  }
+  
+  .message-content input[type="submit"] {
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 1px solid grey;
+  }
+
+
+}
+
+// ----------------------- //

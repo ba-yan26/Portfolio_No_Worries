@@ -1,6 +1,12 @@
+  <div class="responsive-search">
+    <%= render 'public/rooms/search', q: @q %>
+  </div>
+  
   <div class="create">
     <%= link_to "ルーム作成", new_room_path %>
   </div>
+  
+
 
   <% rooms.each do |room| %>
     <% if room.resolution_status == false %>

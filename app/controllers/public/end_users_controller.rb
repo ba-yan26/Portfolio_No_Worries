@@ -4,7 +4,7 @@ class Public::EndUsersController < ApplicationController
 
   def show
     @end_user = EndUser.find(params[:id])
-    @rooms = @end_user.rooms
+    @rooms = @end_user.rooms.page(params[:page]).per(5)
   end
 
   def edit
