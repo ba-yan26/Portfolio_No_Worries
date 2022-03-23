@@ -9,16 +9,6 @@
   </div>
 
   <!-- 評価javascript -->
-  <script>
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'review[rate]',
-    half: true,
-  });
-  </script>
 
   <!-- メッセージ -->
   <div class="form-group row">
@@ -35,3 +25,16 @@
   </div>
 
 <% end %>
+
+  <script>
+  $(document).on('turbolinks:load', function() {
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'review[rate]',
+      half: true,
+    });
+  });
+  </script>

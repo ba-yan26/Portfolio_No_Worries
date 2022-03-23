@@ -13,12 +13,15 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "script.js"
-import "jquery.raty.js"
+//import "jquery.raty.js"
+
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
 
 const jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+require("./jquery.raty")
