@@ -21,6 +21,8 @@
       <%= @end_user.body %>
     </div>
     
+    <%= link_to "評価", reviews_path(@end_user) %>
+    
     <% if @end_user == current_end_user %>
       <div class="side-profile-list profile-edit">
         <%= link_to "プロフィール編集", edit_end_user_path(@end_user) %>
@@ -63,6 +65,3 @@
     <% end %>
   </div>
 </div>
-
-
-

@@ -1,28 +1,30 @@
-<h1>ユーザー編集</h1>
-<table class="table">
-  <tbody>
-    <%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
-      <tr>
-        <th>名前</th>
-        <td><%= @end_user.name %></td>
-      </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= @end_user.email %></td>
-      </tr>
-      <tr>
-        <th>会員ステータス</th>
-        <td>
-          <%= f.radio_button :is_delete, :false %>
-          <%= f.label :有効 %>
-          <%= f.radio_button :is_delete, :true %>
-          <%= f.label :退会 %>
-        </td>
-      </tr>
-      <tr>
-        <th></th>
-        <td><%= f.submit "編集内容を保存する" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="admin-container">
+  <h4 class="main-title">ユーザー編集</h4>
+  <table class="table">
+    <tbody>
+      <%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
+        <tr>
+          <th>名前</th>
+          <td><%= @end_user.name %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @end_user.email %></td>
+        </tr>
+        <tr>
+          <th>会員ステータス</th>
+          <td>
+            <%= f.radio_button :is_delete, :false %>
+            <%= f.label :有効 %>
+            <%= f.radio_button :is_delete, :true %>
+            <%= f.label :退会 %>
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= f.submit "編集内容を保存する" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
