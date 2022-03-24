@@ -401,24 +401,28 @@ footer p {
 }
 
 .room-list:first-child {
-  width: 50%;
+  width: 70%;
   text-align: left;
 }
+
 .room-list:nth-child(2) {
-  width: 20%;
-  text-align: left;
-}
-.room-list:nth-child(3) {
   width: 15%;
   text-align: left;
 }
+
 .room-list:last-child {
   width: 15%;
   text-align: left;
 }
+
+.room-list span {
+  font-size: 0.6rem;
+}
+
 .delete {
   color: gold;
 }
+
 .post {
   color: grey;
 }
@@ -500,6 +504,11 @@ input[type="file"] {
 .room-time {
   text-align: right;
   font-size: 12px;
+}
+
+.room-time a {
+  margin-right: 5px;
+  font-size: 16px;
 }
 
 .comment-content {
@@ -779,7 +788,6 @@ input[type="file"] {
   color: red;
   background-color: pink;
   padding: 5px 0;
-  
 }
 
 // --------------------- //
@@ -797,6 +805,46 @@ input[type="file"] {
 .unsubscribe-container {
   width: 80%;
   margin: 0 auto;
+}
+
+// ------------------------ //
+
+// -------pagination------- //
+
+.main-content nav {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination > li > .page {          
+  background: #edf1ee;
+  border-radius: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.pagination > .active > .page {
+  background: #93c9ff;
+  border-radius: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  margin: 0 5px;
+}
+
+.pagination > .li, .first_page, .last_page, .next_page, .prev_page  {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 5px;
 }
 
 // ------------------------ //
@@ -1041,7 +1089,7 @@ input[type="file"] {
   .review-content span img {
     width: 18px;
   }
-  
+
   .sign-in-shadow {
     width: 70%;
   }

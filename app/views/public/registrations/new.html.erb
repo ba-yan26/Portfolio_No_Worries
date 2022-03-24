@@ -14,8 +14,6 @@
 
     <div class="sign-up">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
-
         <div class="field">
           <%= f.text_field :name, placeholder:"ニックネーム", autofocus: true, autocomplete: "name" %>
         </div>

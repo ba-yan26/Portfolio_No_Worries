@@ -12,10 +12,10 @@
     <% if room.resolution_status == false %>
       <div class="room-content">
         <div class="room-list">
-          <%= link_to room.title, room_path(room) %>
-        </div>
-        <div class="room-list">
-          <%= room.end_user.name %>
+          <%= link_to room_path(room) do %>
+            <%= room.title %><br>
+            <span>投稿者：<%= room.end_user.name %></span>
+          <% end %>
         </div>
         <div class="room-list">
           <i class="fas fa-comment-alt"></i>：<%= room.chats.count %>
