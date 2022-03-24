@@ -1,18 +1,20 @@
+<h4 class="main-title">評価</h4>
+
 <% if @reviews.present? %>
   <% @reviews.each do |review| %>
-    <div class="row posts">
-      <div class="col-md-2 posts-user">
+    <div class="review-container">
+      <div class="review-side">
+        <%= image_tag review.end_user.get_profile_image, size:"60x60" %>
         <%= review.end_user.name %>
       </div>
-      <div class="col-md-6 mb-3">
-        <div class=" posts-content">
-          <h4 class="mb-3">評価：<%= review.rate %>点</h4>
+      <div class="review-main">
+        <div class="review-content">
 
           <!--星評価-->
-         <div id="star-rate-<%= review.id %>"></div>
+         <span id="star-rate-<%= review.id %>"></span>
           <script>
           $('#star-rate-<%= review.id %>').raty({
-            size: 36,
+            size: 24,
             starOff:  '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
             starHalf: '<%= asset_path('star-half.png') %>',
@@ -22,6 +24,7 @@
           });
           </script>  
         <!--/星評価-->
+          <span><%= review.rate %>点</span>
 
           <p><%= review.comment %></p>
         </div>

@@ -123,12 +123,12 @@ footer p {
   width: 100%;
   margin: 0 auto;
   padding-top: 50px;
-  // background-image: image-url("../../assets/images/top-image.jpg");
-  // background-color: rgba(255,255,255,0.6);
-  // background-blend-mode: lighten;
-  // background-size: cover;
-  // background-position: top;
-  // height: 500px;
+  background-image: url("../../assets/images/top-image.jpg");
+  background-color: rgba(255,255,255,0.6);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position: top;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -743,6 +743,45 @@ input[type="file"] {
 }
 
 
+// -------review------- //
+
+.review-container {
+  width: 70%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.review-side {
+  width: 30%;
+  text-align: right;
+}
+
+.review-side img {
+  border-radius: 50%;
+}
+
+.review-main {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.review-rate {
+  margin-bottom: 10px;
+}
+
+// -------------------- //
+
+
+// -------message------- //
+
+.error-message {
+  
+}
+
+// --------------------- //
+
+
 // -------admin-------//
 
 .admin-container {
@@ -763,6 +802,13 @@ input[type="file"] {
 
 
 // ------responsive------- //
+@media screen and (max-width: 1024px) {
+  
+  .container-all {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
 
 @media screen and (max-width: 520px) {
 
@@ -952,24 +998,48 @@ input[type="file"] {
   .room-time {
     font-size: 0.6rem;
   }
-  
+
   .comment-trigger {
     width: 50%;
     margin: 0 auto;
     margin-bottom: 10px;
   }
-  
+
   .message-content textarea {
     margin: 0;
   }
-  
+
   .message-content input[type="submit"] {
     border-radius: 10px;
     padding: 5px 10px;
     border: 1px solid grey;
   }
 
+  .follow-list {
+    width: 85%;
+    padding: 0;
+  }
 
+
+  .follow-side {
+    width: 40%;
+  }
+  
+  .review-container {
+    width: 95%;
+  }
+  
+  .review-side {
+    width: 40%;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  
+  .review-content span img {
+    width: 18px;
+  }
+  
+  
 }
 
 // ----------------------- //

@@ -4,6 +4,10 @@ class Room < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  
+  validates :title, presence: :true
+  validates :body, presence: :true
+  validates :category_id, presence: :true
 
   def is_bookmarked_by?(end_user)
     bookmarks.exists?(end_user_id: end_user.id)
