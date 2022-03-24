@@ -776,6 +776,9 @@ input[type="file"] {
 // -------message------- //
 
 .error-message {
+  color: red;
+  background-color: pink;
+  padding: 5px 0;
   
 }
 
@@ -803,7 +806,7 @@ input[type="file"] {
 
 // ------responsive------- //
 @media screen and (max-width: 1024px) {
-  
+
   .container-all {
     width: 90%;
     margin: 0 auto;
@@ -1024,22 +1027,26 @@ input[type="file"] {
   .follow-side {
     width: 40%;
   }
-  
+
   .review-container {
     width: 95%;
   }
-  
+
   .review-side {
     width: 40%;
     text-align: center;
     font-size: 0.7rem;
   }
-  
+
   .review-content span img {
     width: 18px;
   }
   
-  
+  .sign-in-shadow {
+    width: 70%;
+  }
+
+
 }
 
 // ----------------------- //

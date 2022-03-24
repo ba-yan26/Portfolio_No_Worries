@@ -3,15 +3,21 @@
     <h4>ルーム作成</h4>
     <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
       <% if @room.errors.any? %>
+        <span class="error-message">
           <%= @room.errors.full_messages_for(:title).first %>
+        </span>
       <% end %>
       <%= f.text_field :title, placeholder:"タイトルを入力してください" %>
       <% if @room.errors.any? %>
+        <span class="error-message">
           <%= @room.errors.full_messages_for(:body).first %>
+        </span>
       <% end %>
       <%= f.text_area :body, placeholder:"色んな人からアドバイスがもらいやすいように、内容を詳細に入力してください。" %>
       <% if @room.errors.any? %>
+        <span class="error-message">
           <%= @room.errors.full_messages_for(:category_id).first %>
+        </span>
       <% end %>
       <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => "カテゴリ選択" %>
       <%= f.submit "ルーム作成" %>

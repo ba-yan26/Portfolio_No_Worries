@@ -2,9 +2,27 @@
   <div class="form-create-content">
     <h4>ユーザー編集</h4>
     <%= form_with model: @end_user, url: end_user_path(@end_user), method: :patch do |f| %>
+      <% if @end_user.errors.any? %>
+        <span class="error-message">
+          <%= @end_user.errors.full_messages_for(:name).first %>
+        </span>
+      <% end %>
       <%= f.text_field :name %>
+      <% if @end_user.errors.any? %>
+        <span class="error-message">
+          <%= @end_user.errors.full_messages_for(:email).first %>
+        </span>
+      <% end %>
       <%= f.text_field :email %>
+      <% if @end_user.errors.any? %>
+        <span class="error-message">
+          <%= @end_user.errors.full_messages_for(:body).first %>
+        </span>
+      <% end %>
       <%= f.text_area :body, placeholder:"140字以内で自己紹介を記入してください" %>
+      <label class="screenshot" for="form-image">プロフィール画像</label>
+        <%= f.file_field :profile_image, accept: 'image/*', id:"form-image" %>
+      <span class="select-image">選択されていません</span>
       <%= f.submit "編集" %>
     <% end %>
     <%= link_to "退会する", confirm_unsubscribe_path(@end_user) %>

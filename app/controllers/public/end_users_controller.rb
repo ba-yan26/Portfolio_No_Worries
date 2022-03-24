@@ -16,7 +16,7 @@ class Public::EndUsersController < ApplicationController
     if @end_user.update(end_user_params)
       redirect_to end_user_path(@end_user)
     else
-      redirect_back(fallback_location: root_path)
+      render "edit"
     end
   end
 

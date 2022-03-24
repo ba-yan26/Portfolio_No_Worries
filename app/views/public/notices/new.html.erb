@@ -5,20 +5,30 @@
     <%= @end_user.name %>さんを通報します
 
     <%= form_with model: @notice, url: end_user_notices_path, method: :post do |f| %>
-      <div>
+      <% if @notice.errors.any? %>
+        <span class="error-message">
+          <%= @notice.errors.full_messages_for(:title).first %>
+        </span>
+      <% end %>
         <%= f.text_field :title, placeholder:"タイトルを入力してください" %>
-      </div>
-      <div>
+        
+      <% if @notice.errors.any? %>
+        <span class="error-message">
+          <%= @notice.errors.full_messages_for(:body).first %>
+        </span>
+      <% end %>
         <%= f.text_area :body, placeholder:"詳細に入力してください" %>
-      </div>
-      <div>
+        
+      <% if @notice.errors.any? %>
+        <span class="error-message">
+          <%= @notice.errors.full_messages_for(:notice_image).first %>
+        </span>
+      <% end %>
         <label class="screenshot" for="form-image">スクリーンショット</label>
         <%= f.file_field :notice_image, accept: 'image/*', id:"form-image" %>
         <span class="select-image">選択されていません</span>
-      </div>
-      <div>
-        <%= f.submit "送信" %>
-      </div>
+        
+      <%= f.submit "送信" %>
     <% end %>
 
   </div>
