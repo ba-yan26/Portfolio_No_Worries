@@ -29,6 +29,12 @@ class Public::EndUsersController < ApplicationController
     end_user = EndUser.find(params[:id])
     @end_users = end_user.followers
   end
+  
+  def reviewings
+    end_user = EndUser.find(params[:id])
+    @end_users = end_user.reviewings
+  end
+
 
   def ensure_correct_end_user
     @end_user = EndUser.find(params[:id])

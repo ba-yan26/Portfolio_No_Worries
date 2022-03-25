@@ -1,7 +1,7 @@
 <div class="form-create">
   <div class="form-create-content">
     <h4>評価フォーム</h4>
-      <%= form_with model: @review, url: end_user_reviews_path, method: :post do |f| %>
+      <%= form_with model:[@end_user, @review], url: end_user_reviews_path, method: :post do |f| %>
         <!-- 評価 -->
         <div class="review-rate" id="star">
           <%= f.hidden_field :rate, id: :review_star %>
@@ -17,7 +17,7 @@
 </div>
 
 
-  <script>
+<script>
   $(document).on('turbolinks:load', function() {
     $('#star').raty({
       size     : 36,
@@ -28,4 +28,4 @@
       half: true,
     });
   });
-  </script>
+</script>

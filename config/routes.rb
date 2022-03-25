@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'rooms/resolution' => 'rooms#resolution', as: 'resolution'
     get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
-    get 'reviews/:id' => 'reviews#show', as: 'reviews'
     resources :end_users, only: [:show, :edit, :update] do
       resource :reviews, only: [:new, :create]
+      get :reviewings, on: :member
       resource :notices, only: [:new, :create]
       resource :relationships, only: [:create, :destroy]
       get :followings, on: :member
