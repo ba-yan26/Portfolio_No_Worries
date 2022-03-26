@@ -35,7 +35,6 @@ class Public::EndUsersController < ApplicationController
     @reviews = Review.where(reviewing: @end_user)
   end
 
-
   def ensure_correct_end_user
     @end_user = EndUser.find(params[:id])
     unless @end_user == current_end_user
@@ -48,5 +47,4 @@ class Public::EndUsersController < ApplicationController
   def end_user_params
     params.require(:end_user).permit(:name, :email, :body, :profile_image)
   end
-
 end
