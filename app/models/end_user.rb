@@ -44,7 +44,4 @@ class EndUser < ApplicationRecord
     # 引数に渡されているユーザーがフォローされているかどうか
   end
 
-  def is_reviewed_by?(end_user)
-    passive_reviews.find_by(reviewing_id: end_user.id).present?
-  end
 end
