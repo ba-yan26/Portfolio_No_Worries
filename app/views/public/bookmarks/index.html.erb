@@ -1,4 +1,4 @@
-<h1 class="main-title">ブックマーク</h1>
+<h4 class="main-title">ブックマーク</h4>
 
 <div class="container">
   <div class="side-content">
@@ -10,10 +10,10 @@
       <% if room.is_bookmarked_by?(current_end_user) %>
         <div class="room-content">
           <div class="room-list">
-            <%= link_to room.title, room_path(room) %>
-          </div>
-          <div class="room-list">
-            <%= room.end_user.name %>
+            <%= link_to room_path(room) do %>
+              <%= room.title %><br>
+              <span>投稿者：<%= room.end_user.name %></span>
+            <% end %>
           </div>
           <div class="room-list">
             <i class="fas fa-comment-alt"></i>：<%= room.chats.count %>

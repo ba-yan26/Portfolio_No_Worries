@@ -4,7 +4,7 @@ class Public::EndUsersController < ApplicationController
 
   def show
     @end_user = EndUser.find(params[:id])
-    @rooms = @end_user.rooms
+    @rooms = @end_user.rooms.page(params[:page]).per(5)
   end
 
   def edit
@@ -16,7 +16,7 @@ class Public::EndUsersController < ApplicationController
     if @end_user.update(end_user_params)
       redirect_to end_user_path(@end_user)
     else
-      redirect_back(fallback_location: root_path)
+      render "edit"
     end
   end
 
@@ -28,6 +28,11 @@ class Public::EndUsersController < ApplicationController
   def followers
     end_user = EndUser.find(params[:id])
     @end_users = end_user.followers
+  end
+
+  def reviewers
+    @end_user = EndUser.find(params[:id])
+    @reviews = Review.where(reviewing: @end_user)
   end
 
   def ensure_correct_end_user
@@ -42,5 +47,4 @@ class Public::EndUsersController < ApplicationController
   def end_user_params
     params.require(:end_user).permit(:name, :email, :body, :profile_image)
   end
-
 end

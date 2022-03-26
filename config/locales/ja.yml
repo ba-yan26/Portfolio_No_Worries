@@ -9,6 +9,26 @@ ja:
       truncate: "..."
       
   activerecord:
+    models:
+      room: 部屋
+      end_user: ユーザー
+      notice: 通報
+    attributes:
+      room:
+        title: タイトル
+        body: 本文
+        category_id: カテゴリ
+      end_user:
+        name: 名前
+        email: メールアドレス
+        body: 紹介文
+        profile_image: プロフィール画像
+      notice:
+        title: タイトル
+        body: 本文
+        notice_image: スクリーンショット
+        
+
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

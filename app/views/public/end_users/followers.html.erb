@@ -1,5 +1,5 @@
 <div class="follow-content">
-  <h4>フォロワー</h4>
+  <h4 class="main-title">フォロワー</h4>
   
   <% @end_users.each do |end_user| %>
     <div class="follow-list">
@@ -11,8 +11,8 @@
           <% end %>
         </div>
         <div class="follow-profile">
-          <%= end_user.followings.count %> follow
-          <%= end_user.followers.count %> follwer
+          <p><%= end_user.followings.count %> follow</p>
+          <p><%= end_user.followers.count %> follower</p>
         </div>
       </div>
       <div class="follow-body">

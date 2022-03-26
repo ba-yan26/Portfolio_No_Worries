@@ -1,37 +1,31 @@
-<%= form_with model: @review, url: end_user_reviews_path, method: :post do |f| %>
+<div class="form-create">
+  <div class="form-create-content">
+    <h4>評価フォーム</h4>
+      <%= form_with model:[@end_user, @review], url: end_user_reviews_path, method: :post do |f| %>
+        <!-- 評価 -->
+        <div class="review-rate" id="star">
+          <%= f.hidden_field :rate, id: :review_star %>
+        </div>
+      
+        <!-- メッセージ -->
+          <%= f.text_area :comment, class: "form-control", rows: "8", placeholder:'きちんとお礼を伝えましょう！' %>
+          
+          <%= f.submit '投稿する' %>
 
-
-
-  <!-- 評価 -->
-  <div class="form-group row" id="star">
-    <%= f.label :rate,'評価 ' %>
-    <%= f.hidden_field :rate, id: :review_star %>
+      <% end %>
   </div>
+</div>
 
-  <!-- 評価javascript -->
-  <script>
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'review[rate]',
-    half: true,
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'review[rate]',
+      half: true,
+    });
   });
-  </script>
-
-  <!-- メッセージ -->
-  <div class="form-group row">
-    <%= f.label :comment, '評価メッセージ ' %>
-    <div class="col-md-9">
-      <%= f.text_area :comment, class: "form-control", rows: "8", placeholder:'きちんとお礼を伝えましょう！' %>
-    </div>
-  </div>
-
-  <div class="form-group row justify-content-end">
-    <div class="col-md-9">
-      <%= f.submit '投稿する' %>
-    </div>
-  </div>
-
-<% end %>
+</script>

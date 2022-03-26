@@ -1,3 +1,10 @@
-<h1>退会確認画面</h1>
-<%= link_to "退会しない", end_user_path(@end_user) %>
-<%= link_to "退会する", withdraw_end_user_path(@end_user), method: :patch %>
+<div class="unsubscribe-container">
+  <h4 class="main-title">退会確認画面</h4>
+  <p>
+    退会手続きをすると全てのサービスがご利用できなくなります.
+    再度ご利用いただくには、新たにアカウント作成が必要になります。
+    退会される場合は『退会する』ボタンを押下してください
+  </p>
+  <%= link_to "退会しない", end_user_path(@end_user) %>
+  <%= link_to "退会する", withdraw_end_user_path(@end_user), method: :patch %>
+</div>

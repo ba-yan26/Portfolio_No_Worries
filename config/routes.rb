@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions',
   }
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions",
   }
 
   root :to => 'homes#top'
@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'rooms/resolution' => 'rooms#resolution', as: 'resolution'
     get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
-    get 'reviews/:id' => 'reviews#show', as: 'reviews'
     resources :end_users, only: [:show, :edit, :update] do
       resource :reviews, only: [:new, :create]
+      get :reviewers, on: :member
       resource :notices, only: [:new, :create]
       resource :relationships, only: [:create, :destroy]
       get :followings, on: :member

@@ -1,10 +1,10 @@
   <h5>カテゴリ一覧</h5>
-  <ul>
+  <div class="category-content">
     <% categories.each do |category| %>
-    <li>
+    <div class="category-list">
       <%= link_to category_path(category) do %>
         <%= category.name %> （<%= category.rooms.count %>）
       <% end %>
-    </li>
+    </div>
     <% end %>
-  </ul>
+  </div>

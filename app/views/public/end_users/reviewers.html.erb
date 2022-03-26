@@ -1,0 +1,33 @@
+<h4 class="main-title">評価</h4>
+  <% if @reviews.present? %>
+    <% @reviews.each do |review| %>
+      <div class="review-container">
+        <div class="review-side">
+          <%= image_tag review.reviewer.get_profile_image, size:"60x60" %>
+          <%= review.reviewer.name %>
+        </div>
+        <div class="review-main">
+          <div class="review-content">
+            <span class="star-rate" data-score="<%= review.rate%>"></span>
+            <span><%= review.rate %>点</span>
+            <p><%= review.comment %></p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  <% else %>
+    <p class="review-nothing">まだ評価されていません</p>
+  <% end%>
+  <script>
+    $('.star-rate').raty({
+      size: 24,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      },
+    });
+  </script>

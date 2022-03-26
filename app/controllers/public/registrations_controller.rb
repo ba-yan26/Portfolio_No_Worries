@@ -61,6 +61,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
+
   def after_sign_up_path_for(resourse)
     rooms_path
   end

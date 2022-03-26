@@ -11,7 +11,8 @@ class Public::NoticesController < ApplicationController
     if @notice.save
       redirect_to confirm_notice_path
     else
-      redirect_back(fallback_location: root_path)
+      @end_user = EndUser.find(params[:end_user_id])
+      render "new"
     end
   end
 

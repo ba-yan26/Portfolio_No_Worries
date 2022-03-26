@@ -5,6 +5,6 @@ class Public::CategoriesController < ApplicationController
     @categories = Category.all
     @category = Category.find(params[:id])
     @q = @category.rooms.ransack(params[:q])
-    @rooms = @q.result(distinct: true).order(created_at: :desc)
+    @rooms = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
   end
 end

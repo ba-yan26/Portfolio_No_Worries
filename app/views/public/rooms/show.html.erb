@@ -1,7 +1,7 @@
 <div class="room-show">
 
   <div class="show-content">
-    <div class="category-list"><%= @room.category.name %></div>
+    <div class="category-tag"><%= @room.category.name %></div>
     <h5 class="room-title"><small>タイトル：</small><%= @room.title %></h5>
     <p><%= safe_join(@room.body.split("\n"),tag(:br)) %></p>
     <div class="room-time">
@@ -31,7 +31,7 @@
       <div class="message-content">
         <%= form_with model:[@room, @chat], url: room_chats_path(@room), method: :post, local: false do |f| %>
           <%= f.text_area :message, rows:"5", class:"message" %>
-          <%= f.submit "コメント" %>
+          <%= f.submit "送信" %>
         <% end %>
       </div>
     <% end %>

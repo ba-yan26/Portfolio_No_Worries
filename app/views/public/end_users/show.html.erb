@@ -6,23 +6,28 @@
       <%= image_tag @end_user.get_profile_image, size:"60x60" %><br>
       <%= @end_user.name %>
     </div>
-    
+
     <div class="side-profile-list profile-follow">
       <%= link_to followings_end_user_path do %>
         <%= @end_user.followings.count %> follow
       <% end %>
-        
+
       <%= link_to followers_end_user_path do %>
         <%= @end_user.followers.count %> follwer
       <% end %>
     </div>
-    
+
+    <div class="side-profile-list">
+      <%= link_to reviewers_end_user_path do %>
+        評価（<%= @end_user.reviewings.count %>件）
+      <% end %>
+    </div>
+
     <div class="side-profile-list profile-body">
       <%= @end_user.body %>
     </div>
-    
-    <%= link_to "評価", reviews_path(@end_user) %>
-    
+
+
     <% if @end_user == current_end_user %>
       <div class="side-profile-list profile-edit">
         <%= link_to "プロフィール編集", edit_end_user_path(@end_user) %>
@@ -63,5 +68,6 @@
           </div>
       </div>
     <% end %>
+    <%= paginate @rooms %>
   </div>
 </div>
