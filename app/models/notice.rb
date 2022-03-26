@@ -2,7 +2,7 @@ class Notice < ApplicationRecord
   belongs_to :end_user
 
   has_one_attached :notice_image
-  
+
   validates :title, presence: :true
   validates :body, presence: :true
   validates :notice_image, presence: :true

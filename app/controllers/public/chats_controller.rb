@@ -21,5 +21,4 @@ class Public::ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:message)
   end
-
 end
