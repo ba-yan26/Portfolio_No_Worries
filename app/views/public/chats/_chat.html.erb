@@ -24,7 +24,7 @@
             <% end %>
             <% if @room.end_user == current_end_user %>
               <% if @room.best_answer == chat.id %>
-                <%= link_to "評価する", new_end_user_reviews_path(chat.end_user) %>
+                <%= link_to "評価", new_end_user_reviews_path(chat.end_user) %>
               <% end %>
               <%= form_with model: @room, url: room_path(@room), method: :patch, data: {confirm:"#{chat.end_user.name}さんの回答をベストアンサーにします。その後変更はできませんがよろしいでしょうか。"} do |f| %>
                 <%= f.hidden_field :best_answer, value: chat.id %>

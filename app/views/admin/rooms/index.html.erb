@@ -6,7 +6,7 @@
       <tr>
         <th>ルーム名</th>
         <th>投稿者</th>
-        <th>解決ステータス</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -16,9 +16,9 @@
         <td><%= room.end_user.name %></td>
         <td>
           <% if room.resolution_status == false %>
-            未解決
+            <span class="no-resolution">未</span>
           <% else %>
-            解決済
+            <span class="resolution">済</span>
           <% end %>
         </td>
       </tr>

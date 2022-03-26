@@ -1,7 +1,9 @@
-<h1>カテゴリ編集</h1>
-
-<%= form_with model: @category, url: admin_category_path(@category), method: :patch do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit "編集する" %>
-<% end %>
+<div class="main-content">
+  <h5 class="category-edit">カテゴリ編集</h5>
+  <div class="category-form">
+    <%= form_with model: @category, url: admin_category_path(@category), method: :patch do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit "編集" %>
+    <% end %>
+  </div>
+</div>
