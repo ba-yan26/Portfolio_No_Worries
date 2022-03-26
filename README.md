@@ -36,7 +36,6 @@
 - 相談係：誰かの役に立ちたい時
 
 ## 設計書
-- テーブル設計書：https://docs.google.com/spreadsheets/d/1IeM50SLAt96HuBvPN1UnDV17qapLbb_pxSrFrF9KAeA/edit?usp=sharing
 - ER図：https://drive.google.com/file/d/1GcYSAeRy3btUbur0E5aKHNSQxhajJwf9/view?usp=sharing
 - 画面遷移図：https://drive.google.com/file/d/1HtdP6K7J96KstgEZZwF3TyVFUtrbUZHj/view?usp=sharing
 
@@ -52,4 +51,6 @@
 
 ## 使用素材
 - ぱくたそ(https://www.pakutaso.com/)
+- Free Logo Maker(https://www.designevo.com/)
+- O-DAN(https://o-dan.net/ja/)
 

@@ -56,7 +56,7 @@ header {
 
 .header-logo-menu {
   width: 15%;
-  margin-left: 20px;
+  margin-left: 60px;
 }
 
 .header-logo {
@@ -621,7 +621,7 @@ input[type="file"] {
 }
 
 .comment-trigger {
-  width: 15%;
+  width: 140px;
   padding: 5px;
   background-color: #A2DD9F;
   color: #fff;
@@ -645,6 +645,13 @@ input[type="file"] {
   border-radius: 15px;
   border: solid 1px grey;
   padding: 10px;
+  margin: 0;
+}
+
+.message-content input[type=submit] {
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid grey;
 }
 
 .message {
@@ -772,6 +779,8 @@ input[type="file"] {
   margin: 20px auto;
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid grey;
+  padding-bottom: 15px;
 }
 
 .review-side {
@@ -790,6 +799,11 @@ input[type="file"] {
 
 .review-rate {
   margin-bottom: 10px;
+}
+
+.review-nothing {
+  text-align: center;
+  margin-top: 50px;
 }
 
 // -------------------- //
@@ -897,13 +911,13 @@ input[type="file"] {
     width: 90%;
     margin: 0 auto;
   }
-  
+
   .button {
     height: 40px;
     left: 150px;
     font-size: 18px;
   }
-  
+
   .text-area {
     height: 40px;
     width: 175px;
@@ -916,7 +930,13 @@ input[type="file"] {
   .admin-container {
     width: 90%;
   }
-  
+
+  .header-logo-menu {
+    width: 15%;
+    margin-left: 50px;
+  }
+
+
   .follow-list {
     width: 90%;
   }
@@ -952,7 +972,7 @@ input[type="file"] {
     z-index: 9;
     margin-right: 10px;
   }
-  
+
   .header-logo {
     line-height: 60px;
     width: 80px;
@@ -961,7 +981,7 @@ input[type="file"] {
   .header-icon {
     line-height: 60px;
   }
-  
+
   .header-icon img {
     width: 24px;
     height: 24px;
@@ -1011,14 +1031,14 @@ input[type="file"] {
     left: 128px;
     font-size: 15px;
   }
-  
+
   .category-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
   }
-  
+
   .category-list {
     width: 25%;
     border-bottom: 1px solid grey;
@@ -1027,7 +1047,7 @@ input[type="file"] {
     margin-right: 2%;
     margin-left: 2%;
   }
-  
+
   .container {
     flex-direction: column-reverse;
   }
@@ -1163,11 +1183,11 @@ input[type="file"] {
   .follow-side {
     width: 40%;
   }
-  
+
   .follow-profile p {
     font-size: 0.7rem;
   }
-  
+
   .follow-profile a img {
     width: 28px;
     height: 28px;
@@ -1190,9 +1210,6 @@ input[type="file"] {
   .sign-in-shadow {
     width: 70%;
   }
-
-
-
 
 
   .admin-container {

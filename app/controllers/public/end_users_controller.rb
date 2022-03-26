@@ -29,10 +29,10 @@ class Public::EndUsersController < ApplicationController
     end_user = EndUser.find(params[:id])
     @end_users = end_user.followers
   end
-  
-  def reviewings
-    end_user = EndUser.find(params[:id])
-    @end_users = end_user.reviewings
+
+  def reviewers
+    @end_user = EndUser.find(params[:id])
+    @reviews = Review.where(reviewing: @end_user)
   end
 
 

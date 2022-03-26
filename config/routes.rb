@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
     resources :end_users, only: [:show, :edit, :update] do
       resource :reviews, only: [:new, :create]
-      get :reviewings, on: :member
+      get :reviewers, on: :member
       resource :notices, only: [:new, :create]
       resource :relationships, only: [:create, :destroy]
       get :followings, on: :member
