@@ -1,8 +1,8 @@
 <div class="admin-container">
   <h4 class="main-title">ユーザー編集</h4>
-  <table class="table">
-    <tbody>
-      <%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
+  <%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
+    <table class="table">
+      <tbody>
         <tr>
           <th>名前</th>
           <td><%= @end_user.name %></td>
@@ -22,9 +22,9 @@
         </tr>
         <tr>
           <th></th>
-          <td><%= f.submit "編集内容を保存する" %></td>
+          <td class="admin-user-edit"><%= f.submit "編集内容を保存する" %></td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  <% end %>
 </div>

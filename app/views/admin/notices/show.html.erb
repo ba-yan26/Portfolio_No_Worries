@@ -11,7 +11,7 @@
       <td><%= @notice.body %></td>
     </tr>
     <tr>
-      <th>スクリーンショット</th>
+      <th>画像</th>
       <td>
         <%= link_to @notice.get_notice_image, "data-lightbox": @notice.get_notice_image do %>
           <%= image_tag @notice.get_notice_image, size:"100x100" %>
