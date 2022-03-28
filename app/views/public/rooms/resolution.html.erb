@@ -10,10 +10,10 @@
       <% if room.resolution_status == true %>
         <div class="room-content">
           <div class="room-list">
-            <%= link_to room.title, room_path(room) %>
-          </div>
-          <div class="room-list">
-            <%= room.end_user.name %>
+            <%= link_to room_path(room) do %>
+              <%= room.title %><br>
+              <span><%= room.end_user.name %></span>
+            <% end %>
           </div>
           <div class="room-list">
             <i class="fas fa-comment-alt"></i>：<%= room.chats.count %>
