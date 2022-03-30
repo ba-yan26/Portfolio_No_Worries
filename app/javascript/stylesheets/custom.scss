@@ -1232,6 +1232,24 @@ input[type="file"] {
     text-align: center;
   }
 
+  .pagination > li > .page {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+    line-height: 20px;
+  }
+
+  .pagination > .active > .page {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+    line-height: 20px;
+  }
+  
+  .pagination > .li, .first_page, .last_page, .next_page, .prev_page  {
+    height: 20px;
+    line-height: 20px;
+  }
 
 
 }
