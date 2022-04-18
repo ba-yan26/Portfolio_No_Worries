@@ -19,8 +19,14 @@
     <header>
       <div class="header-list">
         <div class="header-logo-menu">
-          <%= link_to root_path do %>
-            <%= image_tag "logo.jpg", class:"header-logo" %>
+          <% if end_user_signed_in? %>
+            <%= link_to rooms_path do %>
+              <%= image_tag "logo.jpg", class:"header-logo" %>
+            <% end %>
+          <% else %>
+            <%= link_to root_path do %>
+              <%= image_tag "logo.jpg", class:"header-logo" %>
+            <% end %>
           <% end %>
         </div>
         <div class=" header-menu">
@@ -54,7 +60,7 @@
                 <%= link_to "ルーム一覧", rooms_path %>
               </li>
               <li>
-                <%= link_to "解決一覧", resolution_path %>
+                <%= link_to "解決一覧", rooms_solution_path %>
               </li>
               <li>
                 <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
