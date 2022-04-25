@@ -1,5 +1,6 @@
 class Public::RoomsController < ApplicationController
   before_action :authenticate_end_user!
+  before_action :ensure_correct_room, only: [:edit]
 
   def new
     @room = Room.new
@@ -51,6 +52,13 @@ class Public::RoomsController < ApplicationController
   def resolution
     @rooms = Room.includes(:end_user, :bookmarks)
     @categories = Category.all
+  end
+
+  def ensure_correct_room
+    @room = Room.find(params[:id])
+    unless @room.end_user == current_end_user
+      redirect_to rooms_path
+    end
   end
 
   private
