@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   }
 
   root :to => 'homes#top'
-  get 'unsubscribe/:id' => 'homes#unsubscribe', as: 'confirm_unsubscribe'
-  patch ':id/withdraw/:id' => 'homes#withdraw', as: 'withdraw_end_user'
   get 'confirm_notice' => 'homes#confirm_notice', as: 'confirm_notice'
   scope module: :public do
+    get 'unsubscribe/:id' => 'end_users#unsubscribe', as: 'confirm_unsubscribe'
+    patch ':id/withdraw/:id' => 'end_users#withdraw', as: 'withdraw_end_user'
     get 'rooms/solution' => 'rooms#resolution'
     get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
     resources :end_users, only: [:show, :edit, :update] do

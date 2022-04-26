@@ -1,6 +1,8 @@
 class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
   before_action :ensure_correct_end_user, only: [:edit]
+  before_action :ensure_correct_unsubscribe, only: [:unsubscribe]
+
 
   def show
     @end_user = EndUser.find(params[:id])
@@ -34,6 +36,25 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     @reviews = Review.where(reviewing: @end_user)
   end
+  
+  def unsubscribe
+    @end_user = EndUser.find(params[:id])
+  end
+
+  def withdraw
+    @end_user = current_end_user
+    @end_user.update(is_delete: true)
+    reset_session
+    redirect_to root_path
+  end
+
+  def ensure_correct_unsubscribe
+    @end_user = EndUser.find(params[:id])
+    unless @end_user == current_end_user
+      redirect_to end_user_path(current_end_user)
+    end
+  end
+
 
   def ensure_correct_end_user
     @end_user = EndUser.find(params[:id])
