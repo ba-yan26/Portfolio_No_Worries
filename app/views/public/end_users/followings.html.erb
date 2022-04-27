@@ -1,6 +1,14 @@
 <div class="follow-content">
-  <h4 class="main-title">フォロー</h4>
+  <h4 class="main-title">
+    <% if @end_user == current_end_user %>
+      フォロー
+    <% else %>
+      <%= @end_user.name %>さんがフォロー
+    <% end %>
+
+  </h4>
   
+  <% if @end_user.followings.present? %>
   <% @end_users.each do |end_user| %>
     <div class="follow-list">
       <div class="follow-side">
@@ -23,6 +31,9 @@
         <% end %>
       </div>
     </div>
+  <% end %>
+  <% else %>
+    <p class="non_follow">まだフォローしていません</p>
   <% end %>
   
 </div>
