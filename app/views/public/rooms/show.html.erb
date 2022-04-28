@@ -1,7 +1,12 @@
 <div class="room-show">
 
   <div class="show-content">
-    <div class="category-tag"><%= @room.category.name %></div>
+    <span class="category-tag"><%= @room.category.name %></span>
+    <% if @room.resolution_status == true %>
+      <span>解決済のお悩みです</span>
+    <% else %>
+      <span>未解決のお悩みです</span>
+    <% end %>
     <h5 class="room-title"><small>タイトル：</small><%= @room.title %></h5>
     <p><%= safe_join(@room.body.split("\n"),tag(:br)) %></p>
     <div class="room-time">
