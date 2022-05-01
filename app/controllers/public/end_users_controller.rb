@@ -36,7 +36,7 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     @reviews = Review.where(reviewing: @end_user)
   end
-  
+
   def unsubscribe
     @end_user = EndUser.find(params[:id])
   end

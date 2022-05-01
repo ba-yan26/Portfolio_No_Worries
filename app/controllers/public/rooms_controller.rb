@@ -19,7 +19,7 @@ class Public::RoomsController < ApplicationController
 
   def index
     @q = Room.ransack(params[:q])
-    @rooms = @q.result(distinct: true).includes(:end_user, :bookmarks).order(created_at: :desc).page(params[:page]).per(10)
+    @rooms = @q.result(distinct: true).includes(:end_user).order(created_at: :desc).page(params[:page]).per(10)
     @categories = Category.all
   end
 
